@@ -1,8 +1,8 @@
 {
   "boe-disposiciones-generales": {
     "url": "https://www.boe.es/rss/boe.php?s=1",
-    "checked_at": "2026-10-18T15:57:39+00:00",
-    "last_successful_check": "2026-10-18T15:57:39+00:00",
+    "checked_at": "2026-10-18T16:00:46+00:00",
+    "last_successful_check": "2026-10-18T16:00:46+00:00",
     "status": "ok",
     "entries": {
       "https://www.boe.es/boe/dias/2026/10/17/": {
@@ -33,8 +33,8 @@
   },
   "bocm-ultimos-boletines": {
     "url": "https://www.bocm.es/boletines.rss",
-    "checked_at": "2026-10-18T15:57:39+00:00",
-    "last_successful_check": "2026-10-18T15:57:39+00:00",
+    "checked_at": "2026-10-18T16:00:47+00:00",
+    "last_successful_check": "2026-10-18T16:00:47+00:00",
     "status": "ok",
     "entries": {
       "965669 at https://www.bocm.es": {
@@ -121,9 +121,10 @@
   },
   "comunidad-madrid-novedades": {
     "url": "https://www.comunidad.madrid/rss.xml?q=/rss.xml",
-    "checked_at": "2026-10-18T15:57:39+00:00",
+    "checked_at": "2026-10-18T16:00:47+00:00",
     "last_successful_check": "2026-10-18T15:57:39+00:00",
-    "status": "ok",
+    "status": "error",
+    "error": "Error consultando https://www.comunidad.madrid/rss.xml?q=/rss.xml: HTTP Error 404: Not Found",
     "entries": {
       "120872 at https://www.comunidad.madrid": {
         "fingerprint": "c337daa0bb0054575ca80a9f55ff0881c1bddb40ee10e3308174ca198a1edb13",
@@ -169,20 +170,20 @@
   },
   "inss-prestacion-nacimiento-cuidado": {
     "url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/6b96a085-4dc0-47af-b2cb-97e00716791e",
-    "checked_at": "2026-10-18T15:57:40+00:00",
-    "last_successful_check": "2026-10-18T15:57:40+00:00",
+    "checked_at": "2026-10-18T16:00:47+00:00",
+    "last_successful_check": "2026-10-18T16:00:47+00:00",
     "status": "ok",
     "entries": {
       "inss-prestacion-nacimiento-cuidado": {
-        "fingerprint": "cf7db39ef2b177c9c9237a68bf364ff84b093c5e533fa2dab1cf8ed4ed0853f2",
-        "title": "Seguridad Social: Prestaciones / Pensiones de Trabajadores"
+        "fingerprint": "ddc7f4395d14e5172c0bfdc948e29db51be6487a9f5d30122f9982e859fd2beb",
+        "title": "Seguridad Social: Prestacions/Pensions de treballadors"
       }
     }
   },
   "justicia-inscripcion-nacimiento": {
     "url": "https://www.mjusticia.gob.es/es/ciudadania/tramites/inscripcion-nacimiento",
-    "checked_at": "2026-10-18T15:57:41+00:00",
-    "last_successful_check": "2026-10-18T15:57:41+00:00",
+    "checked_at": "2026-10-18T16:00:49+00:00",
+    "last_successful_check": "2026-10-18T16:00:49+00:00",
     "status": "ok",
     "entries": {
       "justicia-inscripcion-nacimiento": {
@@ -193,8 +194,8 @@
   },
   "aeat-ayuda-manuales": {
     "url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos.html",
-    "checked_at": "2026-10-18T15:57:41+00:00",
-    "last_successful_check": "2026-10-18T15:57:41+00:00",
+    "checked_at": "2026-10-18T16:00:50+00:00",
+    "last_successful_check": "2026-10-18T16:00:50+00:00",
     "status": "ok",
     "entries": {
       "aeat-ayuda-manuales": {
@@ -205,9 +206,10 @@
   },
   "madrid-ayudas-natalidad": {
     "url": "https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad?q=/asuntos-sociales/ayudas-economicas-natalidad",
-    "checked_at": "2026-10-18T15:57:41+00:00",
+    "checked_at": "2026-10-18T16:00:50+00:00",
     "last_successful_check": "2026-10-18T15:57:41+00:00",
-    "status": "ok",
+    "status": "error",
+    "error": "Error consultando https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad?q=/asuntos-sociales/ayudas-economicas-natalidad: HTTP Error 404: Not Found",
     "entries": {
       "madrid-ayudas-natalidad": {
         "fingerprint": "3d70e992b184f101f3b6d14d00aeae783805e2544def634a69ae00350e32dc82",
@@ -217,9 +219,10 @@
   },
   "madrid-admision-escuelas-infantiles": {
     "url": "https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil?q=/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil",
-    "checked_at": "2026-10-18T15:57:42+00:00",
+    "checked_at": "2026-10-18T16:00:50+00:00",
     "last_successful_check": "2026-10-18T15:57:42+00:00",
-    "status": "ok",
+    "status": "error",
+    "error": "Error consultando https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil?q=/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil: HTTP Error 404: Not Found",
     "entries": {
       "madrid-admision-escuelas-infantiles": {
         "fingerprint": "28ae029d046561ef7de9cb6bc436e6b191b8a2301f602c6ae477e4d08ad8c61f",
@@ -229,9 +232,10 @@
   },
   "madrid-becas-primer-ciclo-infantil": {
     "url": "https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados?q=/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados",
-    "checked_at": "2026-10-18T15:57:42+00:00",
+    "checked_at": "2026-10-18T16:00:50+00:00",
     "last_successful_check": "2026-10-18T15:57:42+00:00",
-    "status": "ok",
+    "status": "error",
+    "error": "Error consultando https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados?q=/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados: HTTP Error 404: Not Found",
     "entries": {
       "madrid-becas-primer-ciclo-infantil": {
         "fingerprint": "50b1f74628e02977e92c23a0e003ed4f82ed756347aefa2da9d27d7d5a40ddd7",
@@ -241,9 +245,10 @@
   },
   "madrid-tarjeta-sanitaria": {
     "url": "https://www.comunidad.madrid/salud/tarjeta-sanitaria?q=/salud/tarjeta-sanitaria",
-    "checked_at": "2026-10-18T15:57:42+00:00",
+    "checked_at": "2026-10-18T16:00:50+00:00",
     "last_successful_check": "2026-10-18T15:57:42+00:00",
-    "status": "ok",
+    "status": "error",
+    "error": "Error consultando https://www.comunidad.madrid/salud/tarjeta-sanitaria?q=/salud/tarjeta-sanitaria: HTTP Error 404: Not Found",
     "entries": {
       "madrid-tarjeta-sanitaria": {
         "fingerprint": "9cc048688cf141b37614cf31608d09ced06918961a584c411ddbba349da3c6b3",
