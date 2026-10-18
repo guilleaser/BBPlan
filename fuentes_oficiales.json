@@ -99,7 +99,7 @@
       "title": "Comunidad de Madrid - Novedades",
       "authority": "Comunidad de Madrid",
       "territory": "Comunidad de Madrid",
-      "url": "https://www.comunidad.madrid/rss.xml",
+      "url": "https://www.comunidad.madrid/rss.xml?q=/rss.xml",
       "host": "www.comunidad.madrid",
       "format": "rss",
       "coverage": "Feed general de novedades institucionales, no es un registro exhaustivo de normativa, ayudas ni convocatorias."
@@ -139,7 +139,7 @@
       "title": "Ayudas económicas a la natalidad",
       "authority": "Comunidad de Madrid",
       "territory": "Comunidad de Madrid",
-      "url": "https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad",
+      "url": "https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad?q=/asuntos-sociales/ayudas-economicas-natalidad",
       "host": "www.comunidad.madrid",
       "format": "html",
       "coverage": "Página oficial informativa de ayudas autonómicas; comprobar convocatoria vigente, requisitos, cuantías, presupuesto y fechas antes de aplicar."
@@ -149,7 +149,7 @@
       "title": "Admisión en el primer ciclo de Educación Infantil",
       "authority": "Comunidad de Madrid - Educación",
       "territory": "Comunidad de Madrid",
-      "url": "https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil",
+      "url": "https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil?q=/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil",
       "host": "www.comunidad.madrid",
       "format": "html",
       "coverage": "Página oficial sobre admisión en el primer ciclo; las fechas, centros y reglas dependen del curso escolar y de la titularidad del centro."
@@ -159,7 +159,7 @@
       "title": "Becas para el primer ciclo de Educación Infantil",
       "authority": "Comunidad de Madrid - Educación",
       "territory": "Comunidad de Madrid",
-      "url": "https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados",
+      "url": "https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados?q=/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados",
       "host": "www.comunidad.madrid",
       "format": "html",
       "coverage": "Página oficial de becas para centros privados autorizados; no representa las plazas públicas autonómicas o municipales."
@@ -169,7 +169,7 @@
       "title": "Tarjeta Sanitaria Individual",
       "authority": "Comunidad de Madrid - Sanidad",
       "territory": "Comunidad de Madrid",
-      "url": "https://www.comunidad.madrid/salud/tarjeta-sanitaria",
+      "url": "https://www.comunidad.madrid/salud/tarjeta-sanitaria?q=/salud/tarjeta-sanitaria",
       "host": "www.comunidad.madrid",
       "format": "html",
       "coverage": "Página oficial sobre tarjeta sanitaria. No cubre por sí sola todos los pasos de alta del bebé, asignación de pediatra ni variaciones de cada centro."

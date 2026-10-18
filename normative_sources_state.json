@@ -1,7 +1,9 @@
 {
   "boe-disposiciones-generales": {
     "url": "https://www.boe.es/rss/boe.php?s=1",
-    "checked_at": "2026-10-18T15:28:11+00:00",
+    "checked_at": "2026-10-18T15:57:39+00:00",
+    "last_successful_check": "2026-10-18T15:57:39+00:00",
+    "status": "ok",
     "entries": {
       "https://www.boe.es/boe/dias/2026/10/17/": {
         "fingerprint": "e4de388b2ac8c099119ce2293093702664a6dcaa7f89c13d32656960be783baf",
@@ -31,7 +33,9 @@
   },
   "bocm-ultimos-boletines": {
     "url": "https://www.bocm.es/boletines.rss",
-    "checked_at": "2026-10-18T15:28:11+00:00",
+    "checked_at": "2026-10-18T15:57:39+00:00",
+    "last_successful_check": "2026-10-18T15:57:39+00:00",
+    "status": "ok",
     "entries": {
       "965669 at https://www.bocm.es": {
         "fingerprint": "734ad1a7dc62b298a170472419b994e27b075681f3d04f0d99f70dde785fbd95",
@@ -116,8 +120,10 @@
     }
   },
   "comunidad-madrid-novedades": {
-    "url": "https://www.comunidad.madrid/rss.xml",
-    "checked_at": "2026-10-18T15:28:11+00:00",
+    "url": "https://www.comunidad.madrid/rss.xml?q=/rss.xml",
+    "checked_at": "2026-10-18T15:57:39+00:00",
+    "last_successful_check": "2026-10-18T15:57:39+00:00",
+    "status": "ok",
     "entries": {
       "120872 at https://www.comunidad.madrid": {
         "fingerprint": "c337daa0bb0054575ca80a9f55ff0881c1bddb40ee10e3308174ca198a1edb13",
@@ -163,9 +169,11 @@
   },
   "inss-prestacion-nacimiento-cuidado": {
     "url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/6b96a085-4dc0-47af-b2cb-97e00716791e",
-    "checked_at": "2026-10-18T15:28:12+00:00",
+    "checked_at": "2026-10-18T15:57:40+00:00",
+    "last_successful_check": "2026-10-18T15:57:40+00:00",
+    "status": "ok",
     "entries": {
-      "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/6b96a085-4dc0-47af-b2cb-97e00716791e": {
+      "inss-prestacion-nacimiento-cuidado": {
         "fingerprint": "cf7db39ef2b177c9c9237a68bf364ff84b093c5e533fa2dab1cf8ed4ed0853f2",
         "title": "Seguridad Social: Prestaciones / Pensiones de Trabajadores"
       }
@@ -173,9 +181,11 @@
   },
   "justicia-inscripcion-nacimiento": {
     "url": "https://www.mjusticia.gob.es/es/ciudadania/tramites/inscripcion-nacimiento",
-    "checked_at": "2026-10-18T15:28:12+00:00",
+    "checked_at": "2026-10-18T15:57:41+00:00",
+    "last_successful_check": "2026-10-18T15:57:41+00:00",
+    "status": "ok",
     "entries": {
-      "https://www.mjusticia.gob.es/es/ciudadania/tramites/inscripcion-nacimiento": {
+      "justicia-inscripcion-nacimiento": {
         "fingerprint": "0a06da19df3f27bac898b870c7d7674477301109902c6a98615dc67d4b7b2061",
         "title": "Inscripción de Nacimiento - Trámites y gestiones personales"
       }
@@ -183,49 +193,59 @@
   },
   "aeat-ayuda-manuales": {
     "url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos.html",
-    "checked_at": "2026-10-18T15:28:13+00:00",
+    "checked_at": "2026-10-18T15:57:41+00:00",
+    "last_successful_check": "2026-10-18T15:57:41+00:00",
+    "status": "ok",
     "entries": {
-      "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos.html": {
+      "aeat-ayuda-manuales": {
         "fingerprint": "c0c5d43c4f53c69b222190d223f58f400ad70a43408ea234453ccb3030ae3542",
         "title": ": Manuales, vídeos y folletos"
       }
     }
   },
   "madrid-ayudas-natalidad": {
-    "url": "https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad",
-    "checked_at": "2026-10-18T15:28:13+00:00",
+    "url": "https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad?q=/asuntos-sociales/ayudas-economicas-natalidad",
+    "checked_at": "2026-10-18T15:57:41+00:00",
+    "last_successful_check": "2026-10-18T15:57:41+00:00",
+    "status": "ok",
     "entries": {
-      "https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad": {
+      "madrid-ayudas-natalidad": {
         "fingerprint": "3d70e992b184f101f3b6d14d00aeae783805e2544def634a69ae00350e32dc82",
         "title": "Ayudas económicas a la natalidad | Comunidad de Madrid"
       }
     }
   },
   "madrid-admision-escuelas-infantiles": {
-    "url": "https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil",
-    "checked_at": "2026-10-18T15:28:13+00:00",
+    "url": "https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil?q=/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil",
+    "checked_at": "2026-10-18T15:57:42+00:00",
+    "last_successful_check": "2026-10-18T15:57:42+00:00",
+    "status": "ok",
     "entries": {
-      "https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil": {
+      "madrid-admision-escuelas-infantiles": {
         "fingerprint": "28ae029d046561ef7de9cb6bc436e6b191b8a2301f602c6ae477e4d08ad8c61f",
         "title": "Haz tu solicitud de admisión en primer ciclo de Educación Infantil | Comunidad de Madrid"
       }
     }
   },
   "madrid-becas-primer-ciclo-infantil": {
-    "url": "https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados",
-    "checked_at": "2026-10-18T15:28:13+00:00",
+    "url": "https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados?q=/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados",
+    "checked_at": "2026-10-18T15:57:42+00:00",
+    "last_successful_check": "2026-10-18T15:57:42+00:00",
+    "status": "ok",
     "entries": {
-      "https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados": {
+      "madrid-becas-primer-ciclo-infantil": {
         "fingerprint": "50b1f74628e02977e92c23a0e003ed4f82ed756347aefa2da9d27d7d5a40ddd7",
         "title": "Becas para el primer ciclo de Educación Infantil en centros privados autorizados | Comunidad de Madrid"
       }
     }
   },
   "madrid-tarjeta-sanitaria": {
-    "url": "https://www.comunidad.madrid/salud/tarjeta-sanitaria",
-    "checked_at": "2026-10-18T15:28:14+00:00",
+    "url": "https://www.comunidad.madrid/salud/tarjeta-sanitaria?q=/salud/tarjeta-sanitaria",
+    "checked_at": "2026-10-18T15:57:42+00:00",
+    "last_successful_check": "2026-10-18T15:57:42+00:00",
+    "status": "ok",
     "entries": {
-      "https://www.comunidad.madrid/salud/tarjeta-sanitaria": {
+      "madrid-tarjeta-sanitaria": {
         "fingerprint": "9cc048688cf141b37614cf31608d09ced06918961a584c411ddbba349da3c6b3",
         "title": "Tarjeta Sanitaria | Comunidad de Madrid"
       }

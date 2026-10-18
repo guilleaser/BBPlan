@@ -59,8 +59,8 @@ jobs:
           title="Revisar novedades de fuentes oficiales ($(date -u +%Y-%m-%d))"
           gh issue create --title "$title" --body-file monitor_report.md
 
-      - name: Open alert for failed source checks
-        if: steps.check.outcome == 'failure'
+      - name: Open alert for unavailable sources
+        if: steps.check.outputs.source_errors == 'true' || steps.check.outcome == 'failure'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -68,6 +68,9 @@ jobs:
           open_alerts=$(gh issue list --state open --search "$title in:title" --json number --jq 'length')
           if [ "$open_alerts" -eq 0 ]; then
             gh issue create --title "$title" --body-file monitor_report.md
+          else
+            issue_number=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number')
+            gh issue comment "$issue_number" --body-file monitor_report.md
           fi
 
       - name: Persist feed baseline
@@ -81,6 +84,6 @@ jobs:
             git push
           fi
 
-      - name: Fail workflow when a source could not be checked
-        if: steps.check.outcome == 'failure'
+      - name: Fail on monitor configuration or runtime errors
+        if: steps.check.outcome == 'failure' && steps.check.outputs.source_errors != 'true'
         run: exit 1

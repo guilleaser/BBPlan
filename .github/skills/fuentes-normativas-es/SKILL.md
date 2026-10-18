@@ -36,7 +36,7 @@ Usa esta skill antes de incorporar o cambiar una afirmación legal, un importe, 
 
 El workflow `.github/workflows/monitor-official-sources.yml` ejecuta `update_regulations.py` los días 1 y 16 de cada mes (aproximadamente cada 15 días) contra `fuentes_oficiales.json`. Incluye RSS del BOE/BOCM y texto visible de páginas oficiales de Seguridad Social/INSS, Justicia, AEAT y servicios de la Comunidad de Madrid. Una referencia con formato `reference` permanece listada, pero se excluye de la consulta automática cuando no se pudo validar una ruta/canal accesible; actualmente ocurre con el portal de Alcobendas (HTTP 403).
 
-El monitor abre incidencias ante entradas nuevas/modificadas y errores de consulta. Un cambio HTML puede ser editorial o técnico: es una señal para investigar, no una conclusión jurídica. El monitor no actualiza el catálogo de reglas, no confirma la vigencia de normas ni garantiza cobertura completa. La primera ejecución solo establece la línea base.
+El monitor abre incidencias ante entradas nuevas/modificadas y errores de consulta. Una fuente inaccesible ya no detiene las demás: registra el fallo, conserva la última línea base correcta y el workflow crea/comenta una incidencia; los errores de configuración global siguen fallando el job. Un cambio HTML puede ser editorial o técnico: es una señal para investigar, no una conclusión jurídica. El monitor no actualiza el catálogo de reglas, no confirma la vigencia de normas ni garantiza cobertura completa. La primera ejecución solo establece la línea base.
 
 ## Límites
 

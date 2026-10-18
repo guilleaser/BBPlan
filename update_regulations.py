@@ -123,7 +123,7 @@ def parse_html_page(body: bytes, source: dict[str, Any]) -> dict[str, dict[str, 
     title = " ".join(" ".join(parser.title_parts).split()) or source["title"]
     fingerprint = hashlib.sha256(text.encode("utf-8")).hexdigest()
     return {
-        source["url"]: {
+        source["id"]: {
             "title": title,
             "link": source["url"],
             "published": "",
@@ -217,6 +217,7 @@ def check_sources(
 
     for source in sources:
         source_id = source.get("id", "(fuente sin id)") if isinstance(source, dict) else "(fuente inválida)"
+        previous = old_state.get(source_id)
         try:
             validate_source(source, trusted_hosts)
             if source["id"] in seen_ids:
@@ -224,19 +225,20 @@ def check_sources(
             seen_ids.add(source["id"])
             if source["format"] == "reference":
                 continue
-
             body = _fetch(source["url"], source["host"])
             entries = (
                 parse_feed(body, source)
                 if source["format"] == "rss"
                 else parse_html_page(body, source)
             )
-            previous = old_state.get(source["id"])
             if previous is not None and not isinstance(previous, dict):
                 raise MonitorError(f"Línea base inválida para la fuente {source['id']}.")
             if previous is not None:
+                previous_entries = previous.get("entries", {})
                 for key, entry in entries.items():
-                    old_entry = previous.get("entries", {}).get(key)
+                    old_entry = previous_entries.get(key)
+                    if old_entry is None and source["format"] == "html" and len(previous_entries) == 1:
+                        old_entry = next(iter(previous_entries.values()))
                     if old_entry is None:
                         changes.append({"source": source, "entry": entry, "kind": "new"})
                     elif old_entry.get("fingerprint") != entry["fingerprint"]:
@@ -245,6 +247,8 @@ def check_sources(
             new_state[source["id"]] = {
                 "url": source["url"],
                 "checked_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "last_successful_check": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "status": "ok",
                 "entries": {
                     key: {"fingerprint": entry["fingerprint"], "title": entry["title"]}
                     for key, entry in entries.items()
@@ -252,6 +256,22 @@ def check_sources(
             }
         except MonitorError as error:
             errors.append(f"{source_id}: {error}")
+            if isinstance(previous, dict):
+                retained_entries = previous.get("entries", {})
+                last_successful_check = previous.get(
+                    "last_successful_check", previous.get("checked_at")
+                )
+            else:
+                retained_entries = {}
+                last_successful_check = None
+            new_state[source_id] = {
+                "url": source.get("url", "") if isinstance(source, dict) else "",
+                "checked_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "last_successful_check": last_successful_check,
+                "status": "error",
+                "error": str(error),
+                "entries": retained_entries,
+            }
     return new_state, changes, errors
 
 
@@ -293,7 +313,10 @@ def make_report(
         for change in changes:
             source = change["source"]
             entry = change["entry"]
-            label = "Publicación nueva" if change["kind"] == "new" else "Publicación modificada"
+            if source["format"] == "html":
+                label = "Página oficial añadida" if change["kind"] == "new" else "Página oficial modificada"
+            else:
+                label = "Publicación nueva" if change["kind"] == "new" else "Publicación modificada"
             link = (
                 entry["link"]
                 if _official_url(entry["link"], source["host"])
@@ -311,7 +334,7 @@ def make_report(
                     "",
                 ]
             )
-    elif not first_run:
+    elif not first_run and not errors:
         lines.extend(["No se detectaron entradas nuevas ni cambios en las fuentes consultadas.", ""])
 
     lines.extend(["## Fuentes monitorizadas", ""])
@@ -394,10 +417,7 @@ def main() -> int:
         first_run = is_initial_baseline
         report = make_report(sources, changes, first_run, errors, coverage_matrix)
         if errors:
-            REPORT_FILE.write_text(report, encoding="utf-8")
-            print(report)
-            print("Error: algunas fuentes no pudieron consultarse.", file=sys.stderr)
-            return 1
+            print("Aviso: algunas fuentes no pudieron consultarse; se conserva su última línea base.", file=sys.stderr)
         STATE_FILE.write_text(
             json.dumps(new_state, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
@@ -406,6 +426,7 @@ def main() -> int:
         if output_path := os.environ.get("GITHUB_OUTPUT"):
             with Path(output_path).open("a", encoding="utf-8") as output:
                 output.write(f"changes={'true' if changes and not first_run else 'false'}\n")
+                output.write(f"source_errors={'true' if errors else 'false'}\n")
         print(report)
         return 0
     except MonitorError as error:
