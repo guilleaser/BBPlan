@@ -1,0 +1,86 @@
+name: Monitor official sources
+
+on:
+  schedule:
+    - cron: "17 5 1,16 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: official-source-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Run monitor tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Check official sources
+        id: check
+        continue-on-error: true
+        run: python update_regulations.py
+
+      - name: Add report to workflow summary
+        if: always()
+        run: |
+          if [ -f monitor_report.md ]; then
+            cat monitor_report.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "El monitor no pudo generar el informe." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload monitoring report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-source-monitor-report
+          path: monitor_report.md
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Open review issue for new publications
+        if: steps.check.outcome == 'success' && steps.check.outputs.changes == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Revisar novedades de fuentes oficiales ($(date -u +%Y-%m-%d))"
+          gh issue create --title "$title" --body-file monitor_report.md
+
+      - name: Open alert for failed source checks
+        if: steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="ALERTA: no se pudo consultar una fuente oficial"
+          open_alerts=$(gh issue list --state open --search "$title in:title" --json number --jq 'length')
+          if [ "$open_alerts" -eq 0 ]; then
+            gh issue create --title "$title" --body-file monitor_report.md
+          fi
+
+      - name: Persist feed baseline
+        if: steps.check.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add normative_sources_state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update official-source feed baseline"
+            git push
+          fi
+
+      - name: Fail workflow when a source could not be checked
+        if: steps.check.outcome == 'failure'
+        run: exit 1

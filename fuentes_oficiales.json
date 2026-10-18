@@ -1,0 +1,189 @@
+{
+  "version": 2,
+  "scope": "Monitorización inicial parcial de fuentes oficiales estatales y de la Comunidad de Madrid, más referencia municipal pendiente de verificación para Alcobendas.",
+  "links_reviewed_at": "2026-10-18",
+  "coverage_matrix": [
+    {
+      "category": "Legislación estatal",
+      "status": "parcial",
+      "source_ids": ["boe-disposiciones-generales"],
+      "gap": "El RSS solo señala publicaciones; hay que comprobar texto consolidado, vigencia y disposiciones aplicables."
+    },
+    {
+      "category": "Permiso y prestación por nacimiento (INSS)",
+      "status": "parcial",
+      "source_ids": ["inss-prestacion-nacimiento-cuidado", "boe-disposiciones-generales"],
+      "gap": "La página informativa no cubre casuística completa, todos los regímenes ni la coordinación con empleadores."
+    },
+    {
+      "category": "Registro Civil y comunicación desde hospital",
+      "status": "parcial",
+      "source_ids": ["justicia-inscripcion-nacimiento"],
+      "gap": "Puede haber pasos/documentación dependientes del hospital y del Registro Civil competente."
+    },
+    {
+      "category": "Fiscalidad y deducciones (AEAT)",
+      "status": "parcial",
+      "source_ids": ["aeat-ayuda-manuales"],
+      "gap": "Está monitorizado un índice general, no la página concreta ni las reglas del ejercicio fiscal que corresponda."
+    },
+    {
+      "category": "Ayudas de natalidad de Comunidad de Madrid",
+      "status": "parcial",
+      "source_ids": ["madrid-ayudas-natalidad", "bocm-ultimos-boletines"],
+      "gap": "Verificar condiciones, fechas de vigencia y disponibilidad presupuestaria en convocatoria y sede."
+    },
+    {
+      "category": "Admisión en escuelas infantiles de Comunidad de Madrid",
+      "status": "parcial",
+      "source_ids": ["madrid-admision-escuelas-infantiles"],
+      "gap": "Los plazos son por curso y las plazas/titularidad requieren consulta de la convocatoria vigente."
+    },
+    {
+      "category": "Becas de primer ciclo en centros privados autorizados",
+      "status": "parcial",
+      "source_ids": ["madrid-becas-primer-ciclo-infantil"],
+      "gap": "No cubre plazas públicas autonómicas/municipales ni confirma elegibilidad."
+    },
+    {
+      "category": "Alta sanitaria, tarjeta y pediatra",
+      "status": "parcial",
+      "source_ids": ["madrid-tarjeta-sanitaria"],
+      "gap": "La página de tarjeta no constituye por sí sola una guía completa de alta de un recién nacido."
+    },
+    {
+      "category": "Escuelas, ayudas y trámites municipales de Alcobendas",
+      "status": "pendiente",
+      "source_ids": ["alcobendas-portal-municipal"],
+      "gap": "Portal con respuesta HTTP 403 desde el monitor y ruta específica del trámite aún no confirmada."
+    },
+    {
+      "category": "Trámites de otros municipios",
+      "status": "fuera_de_alcance",
+      "source_ids": [],
+      "gap": "Hay que seleccionar cada municipio y añadir sus propios portales, boletines, convocatorias y fuentes."
+    }
+  ],
+  "trusted_hosts": [
+    "www.boe.es",
+    "www.bocm.es",
+    "www.comunidad.madrid",
+    "www.seg-social.es",
+    "www.mjusticia.gob.es",
+    "sede.agenciatributaria.gob.es",
+    "www.alcobendas.org"
+  ],
+  "sources": [
+    {
+      "id": "boe-disposiciones-generales",
+      "title": "BOE - Sección I: Disposiciones generales",
+      "authority": "Boletín Oficial del Estado",
+      "territory": "Estatal",
+      "url": "https://www.boe.es/rss/boe.php?s=1",
+      "host": "www.boe.es",
+      "format": "rss",
+      "coverage": "Feed oficial de disposiciones generales. Contiene materias ajenas al planificador y no sustituye la revisión de la norma consolidada."
+    },
+    {
+      "id": "bocm-ultimos-boletines",
+      "title": "BOCM - Últimos boletines oficiales",
+      "authority": "Boletín Oficial de la Comunidad de Madrid",
+      "territory": "Comunidad de Madrid",
+      "url": "https://www.bocm.es/boletines.rss",
+      "host": "www.bocm.es",
+      "format": "rss",
+      "coverage": "Feed oficial de los últimos veinte boletines; detecta publicaciones, no clasifica las disposiciones que afectan a una familia."
+    },
+    {
+      "id": "comunidad-madrid-novedades",
+      "title": "Comunidad de Madrid - Novedades",
+      "authority": "Comunidad de Madrid",
+      "territory": "Comunidad de Madrid",
+      "url": "https://www.comunidad.madrid/rss.xml",
+      "host": "www.comunidad.madrid",
+      "format": "rss",
+      "coverage": "Feed general de novedades institucionales, no es un registro exhaustivo de normativa, ayudas ni convocatorias."
+    },
+    {
+      "id": "inss-prestacion-nacimiento-cuidado",
+      "title": "Prestación por nacimiento y cuidado de menor",
+      "authority": "Seguridad Social / INSS",
+      "territory": "Estatal",
+      "url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/6b96a085-4dc0-47af-b2cb-97e00716791e",
+      "host": "www.seg-social.es",
+      "format": "html",
+      "coverage": "Página oficial informativa de la prestación. La elegibilidad y los periodos dependen del caso y de la normativa aplicable; la página no cubre todas las comunicaciones o trámites de empleadores."
+    },
+    {
+      "id": "justicia-inscripcion-nacimiento",
+      "title": "Inscripción de nacimiento en el Registro Civil",
+      "authority": "Ministerio de la Presidencia, Justicia y Relaciones con las Cortes",
+      "territory": "Estatal",
+      "url": "https://www.mjusticia.gob.es/es/ciudadania/tramites/inscripcion-nacimiento",
+      "host": "www.mjusticia.gob.es",
+      "format": "html",
+      "coverage": "Página oficial informativa; puede requerir consulta adicional al Registro Civil competente y a la información del hospital."
+    },
+    {
+      "id": "aeat-ayuda-manuales",
+      "title": "AEAT - Manuales, vídeos y folletos",
+      "authority": "Agencia Estatal de Administración Tributaria",
+      "territory": "Estatal",
+      "url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos.html",
+      "host": "sede.agenciatributaria.gob.es",
+      "format": "html",
+      "coverage": "Índice general oficial de ayuda. No es una página específica de deducción por maternidad; localizar y verificar el manual del ejercicio fiscal aplicable sigue siendo necesario."
+    },
+    {
+      "id": "madrid-ayudas-natalidad",
+      "title": "Ayudas económicas a la natalidad",
+      "authority": "Comunidad de Madrid",
+      "territory": "Comunidad de Madrid",
+      "url": "https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad",
+      "host": "www.comunidad.madrid",
+      "format": "html",
+      "coverage": "Página oficial informativa de ayudas autonómicas; comprobar convocatoria vigente, requisitos, cuantías, presupuesto y fechas antes de aplicar."
+    },
+    {
+      "id": "madrid-admision-escuelas-infantiles",
+      "title": "Admisión en el primer ciclo de Educación Infantil",
+      "authority": "Comunidad de Madrid - Educación",
+      "territory": "Comunidad de Madrid",
+      "url": "https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil",
+      "host": "www.comunidad.madrid",
+      "format": "html",
+      "coverage": "Página oficial sobre admisión en el primer ciclo; las fechas, centros y reglas dependen del curso escolar y de la titularidad del centro."
+    },
+    {
+      "id": "madrid-becas-primer-ciclo-infantil",
+      "title": "Becas para el primer ciclo de Educación Infantil",
+      "authority": "Comunidad de Madrid - Educación",
+      "territory": "Comunidad de Madrid",
+      "url": "https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados",
+      "host": "www.comunidad.madrid",
+      "format": "html",
+      "coverage": "Página oficial de becas para centros privados autorizados; no representa las plazas públicas autonómicas o municipales."
+    },
+    {
+      "id": "madrid-tarjeta-sanitaria",
+      "title": "Tarjeta Sanitaria Individual",
+      "authority": "Comunidad de Madrid - Sanidad",
+      "territory": "Comunidad de Madrid",
+      "url": "https://www.comunidad.madrid/salud/tarjeta-sanitaria",
+      "host": "www.comunidad.madrid",
+      "format": "html",
+      "coverage": "Página oficial sobre tarjeta sanitaria. No cubre por sí sola todos los pasos de alta del bebé, asignación de pediatra ni variaciones de cada centro."
+    },
+    {
+      "id": "alcobendas-portal-municipal",
+      "title": "Portal del Ayuntamiento de Alcobendas",
+      "authority": "Ayuntamiento de Alcobendas",
+      "territory": "Alcobendas, Comunidad de Madrid",
+      "url": "https://www.alcobendas.org/",
+      "host": "www.alcobendas.org",
+      "format": "reference",
+      "coverage": "Portal municipal para localizar escuelas infantiles, servicios sociales, familia y convocatorias locales. No se ha podido comprobar una ruta municipal específica ni un feed accesible.",
+      "monitoring_note": "No se monitoriza: el portal devolvió HTTP 403 durante la investigación. Hay que confirmar la ruta oficial de cada trámite y un canal de publicación accesible antes de automatizar su seguimiento."
+    }
+  ]
+}

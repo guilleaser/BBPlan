@@ -1,0 +1,234 @@
+{
+  "boe-disposiciones-generales": {
+    "url": "https://www.boe.es/rss/boe.php?s=1",
+    "checked_at": "2026-10-18T15:28:11+00:00",
+    "entries": {
+      "https://www.boe.es/boe/dias/2026/10/17/": {
+        "fingerprint": "e4de388b2ac8c099119ce2293093702664a6dcaa7f89c13d32656960be783baf",
+        "title": "Sumario"
+      },
+      "https://www.boe.es/boe/dias/2026/10/17/pdfs/BOE-A-2026-21619.pdf": {
+        "fingerprint": "0b60b6476e85efdae9be932b58a7f3623c0d683c9555017f416fd2cafe888463",
+        "title": "Enmiendas de 2024 al Anexo del Convenio internacional sobre normas de formación, titulación y guardia para el personal de los buques pesqueros, 1995 Anexo revisado del Convenio de formación para pescadores de 1995, adoptadas en Londres el 23 de mayo de 2024 por Resolución MSC.561(108), y Código sobre normas de formación, titulación y guardia para el personal de los buques pesqueros (Código de formación para pescadores) adoptado en Londres el 23 de mayo de 2024 por Resolución MSC.562(108)."
+      },
+      "https://www.boe.es/boe/dias/2026/10/17/pdfs/BOE-A-2026-21620.pdf": {
+        "fingerprint": "ef2d18f79171b280ca5bc4e31861bb3b47c7e542fbfaac089b32fd005d500acd",
+        "title": "Resolución de 16 de octubre de 2026, de la Presidencia del Comisionado para el Mercado de Tabacos, por la que se publican los precios de venta al público de determinadas labores de tabaco en Expendedurías de Tabaco y Timbre del área de Península y Baleares."
+      },
+      "https://www.boe.es/boe/dias/2026/10/17/pdfs/BOE-A-2026-21621.pdf": {
+        "fingerprint": "fa675d760093c147c8b02d9ef4e049e0e37c59bd22b8f5cbb9f7620f9a7d4a19",
+        "title": "Orden ECM/1092/2026, de 7 de octubre, por la que se acuerda la emisión, acuñación y puesta en circulación de monedas de colección de la XIV Serie Iberoamericana «Encuentro de Dos Mundos»."
+      },
+      "https://www.boe.es/boe/dias/2026/10/17/pdfs/BOE-A-2026-21622.pdf": {
+        "fingerprint": "cbb6ab7ed8f00f74c7135dd24dba6591675a1ac7a38690fc6a7bc255313cec6d",
+        "title": "Orden CNU/1093/2026, de 8 de octubre, por la que se crea el órgano interadministrativo encargado de la ejecución del programa de apoyo a la celebración del acontecimiento de excepcional interés público «Trío de Eclipses 2026-2027-2028»."
+      },
+      "https://www.boe.es/boe/dias/2026/10/17/pdfs/BOE-A-2026-21623.pdf": {
+        "fingerprint": "1e32bcb0320c6af2d613eb9d89112b8cb94ab67f3b590093e328f0d3e4fbdd97",
+        "title": "Real Decreto 832/2026, de 14 de octubre, por el que se regula la concesión directa de una subvención a la Fundación Círculo de Tecnologías para la Defensa y Seguridad."
+      }
+    }
+  },
+  "bocm-ultimos-boletines": {
+    "url": "https://www.bocm.es/boletines.rss",
+    "checked_at": "2026-10-18T15:28:11+00:00",
+    "entries": {
+      "965669 at https://www.bocm.es": {
+        "fingerprint": "734ad1a7dc62b298a170472419b994e27b075681f3d04f0d99f70dde785fbd95",
+        "title": "BOCM - Nº 248"
+      },
+      "965586 at https://www.bocm.es": {
+        "fingerprint": "1e9aacdd999cea87c2b45ee091ea6466ecf0ba8642d14aa2307c5e3415ecc631",
+        "title": "BOCM - Nº 247"
+      },
+      "965320 at https://www.bocm.es": {
+        "fingerprint": "d904fa1a0cadc11d1e762e0e01052412ba76d6367329e3531c29fe3ee2564556",
+        "title": "BOCM - Nº 246"
+      },
+      "965230 at https://www.bocm.es": {
+        "fingerprint": "36471730677a982dd48869c9c5abb2dbc9b27d54e925f81db2854c5e02d40c8f",
+        "title": "BOCM - Nº 245"
+      },
+      "965101 at https://www.bocm.es": {
+        "fingerprint": "1c453961551e774920956a5695d65739ba77d5c0bb65eb24ba0cef2e1a17f2d0",
+        "title": "BOCM - Nº 244"
+      },
+      "965078 at https://www.bocm.es": {
+        "fingerprint": "a19a2bff3d700d962b18e2873c559da13652d538a8cb9d3c85b87f7f54e9c4c3",
+        "title": "BOCM - Nº 243"
+      },
+      "965201 at https://www.bocm.es": {
+        "fingerprint": "8c196e33543ec31d967c9fba21cbcad13e13a6b2b71a0d4bfa94e72d7253db24",
+        "title": "BOCM - Nº 242"
+      },
+      "964854 at https://www.bocm.es": {
+        "fingerprint": "45e90e56540bdddc92b028c9906cb2e1fd121e6fb6d4e0a2c182c9bf06e005e0",
+        "title": "BOCM - Nº 241"
+      },
+      "964764 at https://www.bocm.es": {
+        "fingerprint": "e17977ed734ab1cd4cdf10f9ea5df5b8107ce8ea6d8f0260bc6020729a020395",
+        "title": "BOCM - Nº 240"
+      },
+      "964652 at https://www.bocm.es": {
+        "fingerprint": "50a58e3ee2348ced6a6d1c9447c858fe9900565377086c280f8277f14f79f20d",
+        "title": "BOCM - Nº 239"
+      },
+      "964587 at https://www.bocm.es": {
+        "fingerprint": "c2ca397d0f711aa8d1fd96ba047ab89715873879b33f6efafed1299230b94743",
+        "title": "BOCM - Nº 238"
+      },
+      "964503 at https://www.bocm.es": {
+        "fingerprint": "b7236d5704cf994fa0e15eb03bca44935527b341d785f8bd1bd2b03695e3d5f6",
+        "title": "BOCM - Nº 237"
+      },
+      "964482 at https://www.bocm.es": {
+        "fingerprint": "a57021b80b52a26c653b0b2b61b614ead1c4c481f1e82874ef9a17043fa5b0f9",
+        "title": "BOCM - Nº 236"
+      },
+      "964399 at https://www.bocm.es": {
+        "fingerprint": "15a0e219d53f157bf9127ea461e73c215ff5277afe4ac8d3a63c6e1304e56f50",
+        "title": "BOCM - Nº 235"
+      },
+      "964138 at https://www.bocm.es": {
+        "fingerprint": "41884f53cc82a70f1015e3e809c41eca0831cbfdcd7a617a0c18d8de31c920fc",
+        "title": "BOCM - Nº 234"
+      },
+      "964036 at https://www.bocm.es": {
+        "fingerprint": "8c82e83c28f88f8f9fde2165095770a7719e2f5170a8d19a3ce77f9fe8362ee9",
+        "title": "BOCM - Nº 233"
+      },
+      "963975 at https://www.bocm.es": {
+        "fingerprint": "3eb1fcfadbc9922d58edd08590eaafb5a9af5af7412d064c6cc81dc8fcdd5e88",
+        "title": "BOCM - Nº 232"
+      },
+      "963889 at https://www.bocm.es": {
+        "fingerprint": "ae042bb46f5e2a33a2f042f4ec84c4e070aca5f1487753533459b9c1971302d8",
+        "title": "BOCM - Nº 231"
+      },
+      "963869 at https://www.bocm.es": {
+        "fingerprint": "9fa335e5fdb7d9bb662e82045fb02877477d18f56d0ce0e9e098f61905dc82a1",
+        "title": "BOCM - Nº 230"
+      },
+      "963774 at https://www.bocm.es": {
+        "fingerprint": "b4d75c512fbc6082fce8d564b2f533e68b02148ea29d846ef6e7fdab1c58fec6",
+        "title": "BOCM - Nº 229"
+      }
+    }
+  },
+  "comunidad-madrid-novedades": {
+    "url": "https://www.comunidad.madrid/rss.xml",
+    "checked_at": "2026-10-18T15:28:11+00:00",
+    "entries": {
+      "120872 at https://www.comunidad.madrid": {
+        "fingerprint": "c337daa0bb0054575ca80a9f55ff0881c1bddb40ee10e3308174ca198a1edb13",
+        "title": "Biblioteca: MADRID LEE EN COMUNIDAD Érase otra vez... un invitado inesperado"
+      },
+      "120871 at https://www.comunidad.madrid": {
+        "fingerprint": "817726a2d2c7b4aa800e913e03ff41a8848151f462ba2a878c992929a6c2f150",
+        "title": "Biblioteca: CLUB DE LECTURA"
+      },
+      "120870 at https://www.comunidad.madrid": {
+        "fingerprint": "7601cb9881d7a332a7c7bdf56c54da5d74f4523597743dcb420440fed53e5f20",
+        "title": "Biblioteca: ENCUENTROS LITERARIOS La Quintrala 2.1 con Vanessa Muñoz Sanz"
+      },
+      "120868 at https://www.comunidad.madrid": {
+        "fingerprint": "29c8c1c665b7d24ef95195b33d264cb57a3fad923d85eda267120210d2ee89bb",
+        "title": "Biblioteca: LA CUENTOTECA: CADA MES UN CUENTO"
+      },
+      "120867 at https://www.comunidad.madrid": {
+        "fingerprint": "04b7cacd590fd87c97a7bc3b4c44e01a81b9458961fcea7f22037e6524dd7c56",
+        "title": "Biblioteca: TARDES DE CUENTO Taller de lectura"
+      },
+      "120866 at https://www.comunidad.madrid": {
+        "fingerprint": "40e1ef6b1a5381b5fd45eb7234ceedfee0dd12ccf53431a45de25bd1ab197eb5",
+        "title": "La Comunidad de Madrid, en las Jornadas Deportivas para la Lucha contra el Cáncer de Mama"
+      },
+      "120864 at https://www.comunidad.madrid": {
+        "fingerprint": "9f1840869104dd0b167f95d7530cf02d080457677c683a329792a33959af595c",
+        "title": "Biblioteca: MINIBIBLIO"
+      },
+      "120863 at https://www.comunidad.madrid": {
+        "fingerprint": "efd3d51f6302be9e16d7a9f994fd0f1197e10ba368c9bd715c12e977c8dfcd32",
+        "title": "Biblioteca: DADOS Y LETRAS Juegos de mesa y partidas de Rol en la Biblioteca"
+      },
+      "120862 at https://www.comunidad.madrid": {
+        "fingerprint": "f7268199e56ec41280f3eb152e1ea574271aca937c1d5159de97c348f1db399a",
+        "title": "Biblioteca: VIERNES DE CUENTO ¡Sube al tren de las estrellas!"
+      },
+      "120861 at https://www.comunidad.madrid": {
+        "fingerprint": "161dcc43e8fa2ab85e661a955e590b6f9cb0bb724dc54546b9d5b80d2cfa14fa",
+        "title": "Biblioteca: BIBLIOTECA MODO ON"
+      }
+    }
+  },
+  "inss-prestacion-nacimiento-cuidado": {
+    "url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/6b96a085-4dc0-47af-b2cb-97e00716791e",
+    "checked_at": "2026-10-18T15:28:12+00:00",
+    "entries": {
+      "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/6b96a085-4dc0-47af-b2cb-97e00716791e": {
+        "fingerprint": "cf7db39ef2b177c9c9237a68bf364ff84b093c5e533fa2dab1cf8ed4ed0853f2",
+        "title": "Seguridad Social: Prestaciones / Pensiones de Trabajadores"
+      }
+    }
+  },
+  "justicia-inscripcion-nacimiento": {
+    "url": "https://www.mjusticia.gob.es/es/ciudadania/tramites/inscripcion-nacimiento",
+    "checked_at": "2026-10-18T15:28:12+00:00",
+    "entries": {
+      "https://www.mjusticia.gob.es/es/ciudadania/tramites/inscripcion-nacimiento": {
+        "fingerprint": "0a06da19df3f27bac898b870c7d7674477301109902c6a98615dc67d4b7b2061",
+        "title": "Inscripción de Nacimiento - Trámites y gestiones personales"
+      }
+    }
+  },
+  "aeat-ayuda-manuales": {
+    "url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos.html",
+    "checked_at": "2026-10-18T15:28:13+00:00",
+    "entries": {
+      "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos.html": {
+        "fingerprint": "c0c5d43c4f53c69b222190d223f58f400ad70a43408ea234453ccb3030ae3542",
+        "title": ": Manuales, vídeos y folletos"
+      }
+    }
+  },
+  "madrid-ayudas-natalidad": {
+    "url": "https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad",
+    "checked_at": "2026-10-18T15:28:13+00:00",
+    "entries": {
+      "https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad": {
+        "fingerprint": "3d70e992b184f101f3b6d14d00aeae783805e2544def634a69ae00350e32dc82",
+        "title": "Ayudas económicas a la natalidad | Comunidad de Madrid"
+      }
+    }
+  },
+  "madrid-admision-escuelas-infantiles": {
+    "url": "https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil",
+    "checked_at": "2026-10-18T15:28:13+00:00",
+    "entries": {
+      "https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil": {
+        "fingerprint": "28ae029d046561ef7de9cb6bc436e6b191b8a2301f602c6ae477e4d08ad8c61f",
+        "title": "Haz tu solicitud de admisión en primer ciclo de Educación Infantil | Comunidad de Madrid"
+      }
+    }
+  },
+  "madrid-becas-primer-ciclo-infantil": {
+    "url": "https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados",
+    "checked_at": "2026-10-18T15:28:13+00:00",
+    "entries": {
+      "https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados": {
+        "fingerprint": "50b1f74628e02977e92c23a0e003ed4f82ed756347aefa2da9d27d7d5a40ddd7",
+        "title": "Becas para el primer ciclo de Educación Infantil en centros privados autorizados | Comunidad de Madrid"
+      }
+    }
+  },
+  "madrid-tarjeta-sanitaria": {
+    "url": "https://www.comunidad.madrid/salud/tarjeta-sanitaria",
+    "checked_at": "2026-10-18T15:28:14+00:00",
+    "entries": {
+      "https://www.comunidad.madrid/salud/tarjeta-sanitaria": {
+        "fingerprint": "9cc048688cf141b37614cf31608d09ced06918961a584c411ddbba349da3c6b3",
+        "title": "Tarjeta Sanitaria | Comunidad de Madrid"
+      }
+    }
+  }
+}

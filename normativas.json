@@ -1,0 +1,41 @@
+{
+  "estatal": {
+    "permiso_nacimiento": {
+      "base_semanas": 16,
+      "adicional_por_hijo_extra": 1,
+      "obligatorias_iniciales": 6,
+      "descripcion": "16 semanas base + 1 semana para cada progenitor a partir del 2º hijo. 6 semanas obligatorias tras el parto."
+    },
+    "lactancia_acumulada": {
+      "dias_estimados_por_progenitor": 15,
+      "transferible": false,
+      "base_legal": "Art. 37.4 Estatuto de los Trabajadores. Derecho individual e intransferible."
+    },
+    "deduccion_maternidad": {
+      "cuantia_anual_hijo": 1200,
+      "abono_anticipado_mensual": 100
+    },
+    "parto_multiple_inss": {
+      "gemelos_salarios_minimos": 4,
+      "pago_unico_aprox": 1000
+    }
+  },
+  "comunidades": {
+    "madrid": {
+      "nombre": "Comunidad de Madrid",
+      "ayuda_parto_multiple": {
+        "gemelos": 4500,
+        "trillizos": 9000,
+        "pago_unico": true
+      },
+      "cheque_guarderia": {
+        "cuantia_general": 1330,
+        "cuantia_especial": 1980,
+        "convocatoria_mes": "Marzo/Abril"
+      },
+      "escuelas_infantiles": {
+        "plazo_ordinario": "Marzo a Abril"
+      }
+    }
+  }
+}
