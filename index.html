@@ -6,6 +6,7 @@
   <title>Planificador de Gestiones y Bajas por Nacimiento</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans">
 
@@ -43,6 +44,46 @@
         <i data-lucide="sliders" class="w-5 h-5 text-indigo-600"></i>
         Parámetros del Plan
       </h2>
+
+      <section class="rounded-lg border border-indigo-200 bg-indigo-50 p-4 space-y-3" aria-labelledby="cloudPlansTitle">
+        <div>
+          <h3 id="cloudPlansTitle" class="font-semibold text-indigo-950">Guardar planes en la nube</h3>
+          <p class="mt-1 text-xs text-indigo-900">Inicia sesión para guardar entradas y comentarios en tu cuenta y abrirlos en otros dispositivos. Se almacenan en Supabase; evita escribir datos sensibles que no necesites.</p>
+        </div>
+        <div id="cloudAuthControls" class="space-y-2">
+          <label class="block text-xs font-medium text-slate-700">Correo electrónico
+            <input id="authEmail" type="email" autocomplete="email" class="mt-1 w-full rounded-lg border border-slate-300 bg-white p-2.5 text-sm">
+          </label>
+          <label class="block text-xs font-medium text-slate-700">Contraseña
+            <input id="authPassword" type="password" autocomplete="current-password" minlength="8" class="mt-1 w-full rounded-lg border border-slate-300 bg-white p-2.5 text-sm">
+          </label>
+          <div class="flex flex-wrap gap-2">
+            <button id="signInButton" type="button" class="rounded-lg bg-indigo-700 px-3 py-2 text-xs font-semibold text-white hover:bg-indigo-800">Iniciar sesión</button>
+            <button id="signUpButton" type="button" class="rounded-lg border border-indigo-300 bg-white px-3 py-2 text-xs font-semibold text-indigo-800 hover:bg-indigo-100">Crear cuenta</button>
+          </div>
+        </div>
+        <div id="cloudPlanControls" class="hidden space-y-2">
+          <p id="signedInEmail" class="break-all text-xs text-slate-700"></p>
+          <label class="block text-xs font-medium text-slate-700">Planes guardados
+            <select id="savedPlans" class="mt-1 w-full rounded-lg border border-slate-300 bg-white p-2.5 text-sm">
+              <option value="">Selecciona un plan</option>
+            </select>
+          </label>
+          <label class="block text-xs font-medium text-slate-700">Nombre del plan actual
+            <input id="planName" type="text" maxlength="80" placeholder="Ej.: Plan familiar 2027" class="mt-1 w-full rounded-lg border border-slate-300 bg-white p-2.5 text-sm">
+          </label>
+          <div class="flex flex-wrap gap-2">
+            <button id="newPlanButton" type="button" class="rounded-lg bg-indigo-700 px-3 py-2 text-xs font-semibold text-white hover:bg-indigo-800">Guardar como nuevo</button>
+            <button id="savePlanButton" type="button" disabled class="rounded-lg border border-indigo-300 bg-white px-3 py-2 text-xs font-semibold text-indigo-800 hover:bg-indigo-100 disabled:cursor-not-allowed disabled:opacity-50">Guardar cambios</button>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <button id="loadPlanButton" type="button" disabled class="text-xs font-semibold text-indigo-800 underline disabled:cursor-not-allowed disabled:opacity-50">Abrir seleccionado</button>
+            <button id="deletePlanButton" type="button" disabled class="text-xs font-semibold text-red-700 underline disabled:cursor-not-allowed disabled:opacity-50">Borrar plan</button>
+            <button id="signOutButton" type="button" class="text-xs font-semibold text-slate-600 underline">Cerrar sesión</button>
+          </div>
+        </div>
+        <p id="cloudStatus" class="text-xs text-slate-700" role="status" aria-live="polite"></p>
+      </section>
 
       <div>
         <label class="block text-sm font-medium text-slate-700 mb-1">Fecha Prevista de Parto (FPP)</label>
@@ -124,20 +165,17 @@
             </h2>
             <p class="text-xs text-slate-500 mt-1">Selecciona un día para ver sus hitos y recordatorios.</p>
           </div>
-          <div class="flex items-center justify-between gap-2">
-            <button id="calendarPrev" type="button" aria-label="Mes anterior" class="rounded-lg border border-slate-300 px-3 py-2 text-sm hover:bg-slate-50">‹</button>
-            <h3 id="calendarMonthLabel" class="min-w-36 text-center font-semibold capitalize text-slate-800" aria-live="polite"></h3>
-            <button id="calendarNext" type="button" aria-label="Mes siguiente" class="rounded-lg border border-slate-300 px-3 py-2 text-sm hover:bg-slate-50">›</button>
-          </div>
+          <h3 id="calendarRangeLabel" class="font-semibold text-slate-800" aria-live="polite"></h3>
         </div>
-        <div class="grid grid-cols-7 gap-1 text-center text-xs font-semibold text-slate-500 mb-1" aria-hidden="true">
-          <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
-        </div>
-        <div id="calendarGrid" class="grid grid-cols-7 gap-1" role="grid" aria-label="Calendario mensual"></div>
+        <div id="calendarMonths" class="grid grid-cols-2 gap-3 xl:grid-cols-4" aria-label="Doce meses del plan"></div>
         <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-slate-600">
-          <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-indigo-500"></span>Hito / permiso</span>
-          <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-amber-500"></span>Recordatorio por confirmar</span>
-          <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>Periodo estimado</span>
+          <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded bg-amber-500"></span>Trámite / hito</span>
+          <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded bg-sky-500"></span>Progenitor 1 · Permiso</span>
+          <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded bg-indigo-500"></span>Progenitor 1 · Lactancia</span>
+          <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded bg-cyan-600"></span>Progenitor 1 · Vacaciones</span>
+          <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded bg-emerald-600"></span>Progenitor 2 · Permiso</span>
+          <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded bg-lime-600"></span>Progenitor 2 · Lactancia</span>
+          <span class="flex items-center gap-1"><span class="h-2.5 w-2.5 rounded bg-teal-600"></span>Progenitor 2 · Vacaciones</span>
         </div>
         <div class="mt-5 border-t border-slate-200 pt-4">
           <h3 id="calendarSelectedLabel" class="font-semibold text-slate-900"></h3>
@@ -173,6 +211,22 @@
   </main>
 
   <script>
+    const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
+    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY';
+    const supabaseConfigured = /^https:\/\/[^/]+\.supabase\.co$/.test(SUPABASE_URL)
+      && !SUPABASE_URL.includes('YOUR_')
+      && SUPABASE_ANON_KEY.length > 20
+      && !SUPABASE_ANON_KEY.includes('YOUR_');
+    const supabaseClient = supabaseConfigured && window.supabase
+      ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+      : null;
+    let signedInUser = null;
+    let activePlanId = null;
+    let planComments = {};
+    let cloudSaveTimer = null;
+    let cloudSaveQueue = Promise.resolve();
+    let hydratingPlan = false;
+
     // Ficheros embebidos para descarga con un clic
     const ARCHIVOS_PROYECTO = {
       "normativas.json": JSON.stringify({
@@ -277,10 +331,13 @@ if __name__ == "__main__":
       document.body.removeChild(link);
     }
 
-    const today = new Date();
-    const defaultFpp = new Date(today);
-    defaultFpp.setMonth(defaultFpp.getMonth() + 3);
-    document.getElementById('inputFpp').value = formatInputDate(defaultFpp);
+    function getDefaultFpp() {
+      const date = new Date();
+      date.setMonth(date.getMonth() + 3);
+      return date;
+    }
+
+    document.getElementById('inputFpp').value = formatInputDate(getDefaultFpp());
 
     function formatInputDate(date) {
       const year = date.getFullYear();
@@ -359,8 +416,8 @@ if __name__ == "__main__":
     function createCalendarEvents(fpp, nacimiento, bebes, ccaa, total, ob, vol, lactancia1, lactancia2, vacaciones1, vacaciones2, estrategia) {
       const dates = timelineDates(nacimiento, total, ob, vol, lactancia1, lactancia2, vacaciones1, vacaciones2, estrategia);
       const events = [];
-      const addEvent = (title, start, end, type, details) => {
-        events.push({ title, start, end: end || start, type, details });
+      const addEvent = (title, start, end, type, details, group) => {
+        events.push({ title, start, end: end || start, type, details, group: group || type });
       };
 
       addEvent('Fecha prevista de parto', fpp, fpp, 'milestone', 'Fecha estimada introducida; no es la fecha real de nacimiento.');
@@ -379,25 +436,25 @@ if __name__ == "__main__":
       addEvent('Solicitar prestación por nacimiento: revisar', nacimiento, addDays(nacimiento, 15), 'reminder', 'Recordatorio orientativo tras el nacimiento; confirma el procedimiento y plazo vigente con el INSS.');
       addEvent('Alta sanitaria y pediatra: gestionar', nacimiento, addDays(nacimiento, 14), 'reminder', 'Hito posterior al nacimiento; consulta los pasos de la comunidad autónoma y del centro de salud.');
 
-      addEvent('Permiso por nacimiento: progenitor 1', nacimiento, addDays(dates.finPermiso1, -1), 'period', `Periodo simulado de ${total} semanas. Confirma la duración aplicable y las fechas con el INSS y la empresa.`);
-      addEvent('6 semanas iniciales: progenitor 2', nacimiento, addDays(nacimiento, ob * 7 - 1), 'period', 'Periodo representado según el modelo de ejemplo; confirma su aplicación y fechas.');
+      addEvent('Permiso por nacimiento: progenitor 1', nacimiento, addDays(dates.finPermiso1, -1), 'period', `Periodo simulado de ${total} semanas. Confirma la duración aplicable y las fechas con el INSS y la empresa.`, 'p1-permission');
+      addEvent('6 semanas iniciales: progenitor 2', nacimiento, addDays(nacimiento, ob * 7 - 1), 'period', 'Periodo representado según el modelo de ejemplo; confirma su aplicación y fechas.', 'p2-permission');
       if (estrategia === 'consecutivo') {
-        addEvent('Periodo voluntario simulado: progenitor 2', dates.inicioVoluntarias2, addDays(dates.finPermiso2, -1), 'period', `Relevo estimado de ${vol} semanas; no confirma que este reparto concreto sea aplicable a todos los casos.`);
+        addEvent('Periodo voluntario simulado: progenitor 2', dates.inicioVoluntarias2, addDays(dates.finPermiso2, -1), 'period', `Relevo estimado de ${vol} semanas; no confirma que este reparto concreto sea aplicable a todos los casos.`, 'p2-permission');
       } else {
-        addEvent('Permiso por nacimiento: progenitor 2', addDays(nacimiento, ob * 7), addDays(dates.finPermiso2, -1), 'period', `Periodo simultáneo simulado; confirma el calendario individual de disfrute.`);
+        addEvent('Permiso por nacimiento: progenitor 2', addDays(nacimiento, ob * 7), addDays(dates.finPermiso2, -1), 'period', `Periodo simultáneo simulado; confirma el calendario individual de disfrute.`, 'p2-permission');
       }
 
       if (lactancia1 > 0) {
-        addEvent('Lactancia acumulada estimada: progenitor 1', dates.finPermiso1, dates.finLactancia1, 'period', `${lactancia1} días laborables estimados. El derecho general llega hasta los 9 meses; la posible extensión legal hasta 12 meses tiene condiciones específicas. Confirma la acumulación con la empresa o convenio.`);
+        addEvent('Lactancia acumulada estimada: progenitor 1', dates.finPermiso1, dates.finLactancia1, 'period', `${lactancia1} días laborables estimados. El derecho general llega hasta los 9 meses; la posible extensión legal hasta 12 meses tiene condiciones específicas. Confirma la acumulación con la empresa o convenio.`, 'p1-lactation');
       }
       if (lactancia2 > 0) {
-        addEvent('Lactancia acumulada estimada: progenitor 2', dates.finPermiso2, dates.finLactancia2, 'period', `${lactancia2} días laborables estimados. El derecho general llega hasta los 9 meses; la posible extensión legal hasta 12 meses tiene condiciones específicas. Confirma la acumulación con la empresa o convenio.`);
+        addEvent('Lactancia acumulada estimada: progenitor 2', dates.finPermiso2, dates.finLactancia2, 'period', `${lactancia2} días laborables estimados. El derecho general llega hasta los 9 meses; la posible extensión legal hasta 12 meses tiene condiciones específicas. Confirma la acumulación con la empresa o convenio.`, 'p2-lactation');
       }
       if (vacaciones1 > 0) {
-        addEvent('Vacaciones estimadas: progenitor 1', dates.inicioVacaciones1, dates.finProg1, 'period', `${vacaciones1} días laborables introducidos por la familia; no se descuentan festivos ni se verifica su aprobación.`);
+        addEvent('Vacaciones estimadas: progenitor 1', dates.inicioVacaciones1, dates.finProg1, 'period', `${vacaciones1} días laborables introducidos por la familia; no se descuentan festivos ni se verifica su aprobación.`, 'p1-vacation');
       }
       if (vacaciones2 > 0) {
-        addEvent('Vacaciones estimadas: progenitor 2', dates.inicioVacaciones2, dates.finProg2, 'period', `${vacaciones2} días laborables introducidos por la familia; no se descuentan festivos ni se verifica su aprobación.`);
+        addEvent('Vacaciones estimadas: progenitor 2', dates.inicioVacaciones2, dates.finProg2, 'period', `${vacaciones2} días laborables introducidos por la familia; no se descuentan festivos ni se verifica su aprobación.`, 'p2-vacation');
       }
 
       addEvent('Hito general de lactancia: 9 meses', dates.limiteLactancia, dates.limiteLactancia, 'reminder', 'Fecha calculada desde el nacimiento usado por el plan. El artículo 37.4 del Estatuto contempla una posible extensión hasta los 12 meses si se cumplen sus condiciones.');
@@ -405,41 +462,81 @@ if __name__ == "__main__":
       return events.sort((a, b) => a.start - b.start || a.title.localeCompare(b.title, 'es'));
     }
 
-    let calendarMonth = null;
     let calendarSelectedDate = null;
     let calendarEvents = [];
     let calendarPlanBirthKey = null;
+    let calendarStartMonth = null;
+
+    function calendarEventPresentation(event) {
+      const presentations = {
+        milestone: { label: event.title, typeLabel: 'Hito', className: 'border-amber-300 bg-amber-50 text-amber-900', markerClass: 'bg-amber-500' },
+        reminder: { label: `Acción · ${event.title}`, typeLabel: 'Acción / recordatorio', className: 'border-amber-300 bg-amber-50 text-amber-900', markerClass: 'bg-amber-500' },
+        'p1-permission': { label: 'P1 · Baja', typeLabel: 'Progenitor 1 · permiso', className: 'border-sky-300 bg-sky-50 text-sky-900', markerClass: 'bg-sky-500' },
+        'p1-lactation': { label: 'P1 · Lactancia', typeLabel: 'Progenitor 1 · lactancia', className: 'border-indigo-300 bg-indigo-50 text-indigo-900', markerClass: 'bg-indigo-500' },
+        'p1-vacation': { label: 'P1 · Vacaciones', typeLabel: 'Progenitor 1 · vacaciones', className: 'border-cyan-300 bg-cyan-50 text-cyan-900', markerClass: 'bg-cyan-600' },
+        'p2-permission': { label: 'P2 · Baja', typeLabel: 'Progenitor 2 · permiso', className: 'border-emerald-300 bg-emerald-50 text-emerald-900', markerClass: 'bg-emerald-600' },
+        'p2-lactation': { label: 'P2 · Lactancia', typeLabel: 'Progenitor 2 · lactancia', className: 'border-lime-300 bg-lime-50 text-lime-900', markerClass: 'bg-lime-600' },
+        'p2-vacation': { label: 'P2 · Vacaciones', typeLabel: 'Progenitor 2 · vacaciones', className: 'border-teal-300 bg-teal-50 text-teal-900', markerClass: 'bg-teal-600' }
+      };
+      return presentations[event.group] || presentations[event.type];
+    }
 
     function renderCalendar() {
-      if (!calendarMonth) calendarMonth = new Date(calendarSelectedDate.getFullYear(), calendarSelectedDate.getMonth(), 1);
-      const year = calendarMonth.getFullYear();
-      const month = calendarMonth.getMonth();
-      document.getElementById('calendarMonthLabel').innerText = calendarMonth.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
+      if (!calendarStartMonth) calendarStartMonth = new Date(calendarSelectedDate.getFullYear(), calendarSelectedDate.getMonth(), 1);
+      const rangeEnd = new Date(calendarStartMonth.getFullYear(), calendarStartMonth.getMonth() + 11, 1);
+      document.getElementById('calendarRangeLabel').innerText =
+        `${calendarStartMonth.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' })} – ${rangeEnd.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' })}`;
+      const weekdays = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
+      let monthsHtml = '';
 
-      const firstDay = new Date(year, month, 1);
-      const leadingDays = (firstDay.getDay() + 6) % 7;
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-      const cellCount = Math.ceil((leadingDays + daysInMonth) / 7) * 7;
-      let gridHtml = '';
+      for (let monthOffset = 0; monthOffset < 12; monthOffset++) {
+        const monthDate = new Date(calendarStartMonth.getFullYear(), calendarStartMonth.getMonth() + monthOffset, 1);
+        const year = monthDate.getFullYear();
+        const month = monthDate.getMonth();
+        const firstDay = new Date(year, month, 1);
+        const leadingDays = (firstDay.getDay() + 6) % 7;
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const cellCount = Math.ceil((leadingDays + daysInMonth) / 7) * 7;
+        let monthGrid = '';
 
-      for (let index = 0; index < cellCount; index++) {
-        const day = index - leadingDays + 1;
-        const date = new Date(year, month, day);
-        const key = dateKey(date);
-        const inCurrentMonth = date.getMonth() === month;
-        const eventsForDay = calendarEvents.filter(event => date >= event.start && date <= event.end);
-        const eventTypes = [...new Set(eventsForDay.map(event => event.type))];
-        const selected = key === dateKey(calendarSelectedDate);
-        const dots = eventTypes.map(type => `<span class="h-1.5 w-1.5 rounded-full ${type === 'period' ? 'bg-emerald-500' : type === 'reminder' ? 'bg-amber-500' : 'bg-indigo-500'}"></span>`).join('');
-        const eventCount = eventsForDay.length ? `<span class="text-[10px] font-medium text-slate-500">${eventsForDay.length}</span>` : '';
-        gridHtml += `
-          <button type="button" role="gridcell" data-calendar-date="${key}" aria-label="${date.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}${eventsForDay.length ? `, ${eventsForDay.length} eventos` : ''}" aria-pressed="${selected}" class="min-h-14 rounded-lg border p-1.5 text-left ${selected ? 'border-indigo-600 bg-indigo-50 ring-1 ring-indigo-600' : 'border-slate-200 hover:bg-slate-50'} ${inCurrentMonth ? 'text-slate-800' : 'text-slate-400 bg-slate-50'}">
-            <span class="flex items-center justify-between"><span class="text-xs font-semibold">${date.getDate()}</span>${eventCount}</span>
-            <span class="mt-2 flex h-2 items-center gap-1">${dots}</span>
-          </button>
+        for (const weekday of weekdays) {
+          monthGrid += `<span aria-hidden="true" class="py-0.5 text-center text-[9px] font-semibold text-slate-400">${weekday}</span>`;
+        }
+
+        for (let index = 0; index < cellCount; index++) {
+          const day = index - leadingDays + 1;
+          const date = new Date(year, month, day);
+          const inCurrentMonth = date.getMonth() === month;
+          const key = dateKey(date);
+          const eventsForDay = inCurrentMonth
+            ? calendarEvents.filter(event => date >= event.start && date <= event.end)
+            : [];
+          const selected = key === dateKey(calendarSelectedDate);
+          const eventGroups = [...new Set(eventsForDay.map(event => event.group))];
+          const accessibleEvents = eventsForDay.map(event => event.title).join('; ');
+          const markers = eventGroups.slice(0, 4).map(group => {
+            const event = eventsForDay.find(item => item.group === group);
+            return `<span title="${calendarEventPresentation(event).typeLabel}" class="h-1.5 w-1.5 rounded-full ${calendarEventPresentation(event).markerClass}"></span>`;
+          }).join('');
+          const extraEvents = eventGroups.length > 4 ? `<span class="text-[8px] leading-none text-slate-500">+${eventGroups.length - 4}</span>` : '';
+          monthGrid += `
+            <button type="button" role="gridcell" data-calendar-date="${key}" aria-label="${date.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}${eventsForDay.length ? `: ${accessibleEvents}` : ', sin eventos'}" aria-pressed="${selected}" class="flex h-7 flex-col items-center justify-center rounded text-[10px] leading-none ${selected ? 'bg-indigo-700 font-bold text-white' : inCurrentMonth ? 'text-slate-700 hover:bg-indigo-50' : 'pointer-events-none text-transparent'}">
+              <span>${inCurrentMonth ? date.getDate() : ''}</span>
+              <span aria-hidden="true" class="mt-0.5 flex h-1.5 items-center gap-px">${markers}${extraEvents}</span>
+            </button>
+          `;
+        }
+
+        monthsHtml += `
+          <section class="rounded-lg border border-slate-200 bg-white p-2" aria-label="${monthDate.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' })}">
+            <h4 class="mb-1 text-center text-xs font-semibold capitalize text-slate-800">${monthDate.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' })}</h4>
+            <div class="grid grid-cols-7 gap-px" role="grid" aria-label="${monthDate.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' })}">
+              ${monthGrid}
+            </div>
+          </section>
         `;
       }
-      document.getElementById('calendarGrid').innerHTML = gridHtml;
+      document.getElementById('calendarMonths').innerHTML = monthsHtml;
       document.getElementById('calendarSelectedLabel').innerText = `Eventos del ${formatDate(calendarSelectedDate)}`;
 
       const selectedEvents = calendarEvents.filter(event => calendarSelectedDate >= event.start && calendarSelectedDate <= event.end);
@@ -448,7 +545,7 @@ if __name__ == "__main__":
           <article class="rounded-lg border border-slate-200 p-3">
             <div class="flex flex-wrap items-center justify-between gap-2">
               <h4 class="text-sm font-semibold text-slate-900">${event.title}</h4>
-              <span class="rounded-full px-2 py-0.5 text-[11px] ${event.type === 'period' ? 'bg-emerald-100 text-emerald-800' : event.type === 'reminder' ? 'bg-amber-100 text-amber-800' : 'bg-indigo-100 text-indigo-800'}">${event.type === 'period' ? 'Periodo estimado' : event.type === 'reminder' ? 'Recordatorio' : 'Hito'}</span>
+              <span class="rounded-full border px-2 py-0.5 text-[11px] ${calendarEventPresentation(event).className}">${calendarEventPresentation(event).typeLabel}</span>
             </div>
             <p class="mt-1 text-xs text-slate-600">${event.start.getTime() === event.end.getTime() ? formatDate(event.start) : `${formatDate(event.start)} – ${formatDate(event.end)}`}</p>
             <p class="mt-2 text-xs text-slate-600">${event.details}</p>
@@ -456,24 +553,12 @@ if __name__ == "__main__":
         `).join('')
         : '<p class="text-sm text-slate-500">No hay eventos planificados para este día.</p>';
 
-      document.querySelectorAll('[data-calendar-date]').forEach(button => {
+      document.querySelectorAll('#calendarMonths [data-calendar-date]').forEach(button => {
         button.addEventListener('click', () => {
           calendarSelectedDate = parseInputDate(button.dataset.calendarDate);
-          calendarMonth = new Date(calendarSelectedDate.getFullYear(), calendarSelectedDate.getMonth(), 1);
           renderCalendar();
         });
       });
-    }
-
-    function navigateCalendar(monthOffset) {
-      calendarMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() + monthOffset, 1);
-      const monthStart = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth(), 1);
-      const monthEnd = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() + 1, 0);
-      const firstEvent = calendarEvents.find(event => event.start <= monthEnd && event.end >= monthStart);
-      calendarSelectedDate = firstEvent
-        ? new Date(firstEvent.start < monthStart ? monthStart : firstEvent.start)
-        : monthStart;
-      renderCalendar();
     }
 
     function calcularPlan() {
@@ -500,7 +585,7 @@ if __name__ == "__main__":
       if (calendarPlanBirthKey !== dateKey(nacimiento)) {
         calendarPlanBirthKey = dateKey(nacimiento);
         calendarSelectedDate = new Date(nacimiento);
-        calendarMonth = new Date(nacimiento.getFullYear(), nacimiento.getMonth(), 1);
+        calendarStartMonth = new Date(nacimiento.getFullYear(), nacimiento.getMonth(), 1);
       }
 
       document.getElementById('resumenDuracion').innerHTML = `
@@ -568,6 +653,7 @@ if __name__ == "__main__":
           color: "border-sky-500",
           tramites: [
             {
+              id: "certificate-clave",
               nombre: "Certificado Digital FNMT o Cl@ve Permanente",
               limite: "1 mes antes del parto",
               desc: "Obligatorio para ambos progenitores para tramitar telemáticamente las 17 semanas de prestación sin desplazamientos.",
@@ -575,6 +661,7 @@ if __name__ == "__main__":
               link: "https://www.sede.fnmt.gob.es/"
             },
             {
+              id: "nursery-admission",
               nombre: "Solicitud Plaza Pública Escuela Infantil (0-3 años)",
               limite: `Marzo - Abril (${anioParto})`,
               desc: "En la Comunidad de Madrid el plazo ordinario de presentación de solicitudes se publica entre marzo y abril de cada curso escolar.",
@@ -588,18 +675,21 @@ if __name__ == "__main__":
           color: "border-amber-500",
           tramites: [
             {
+              id: "civil-registry",
               nombre: "Inscripción en el Registro Civil",
               limite: `${formatDate(nacimiento)} a ${formatDate(addDays(nacimiento, 3))} (Hospital) o 10 días`,
               desc: "Se realiza preferentemente desde el propio hospital en las primeras 72 horas con el parte médico de alumbramiento.",
               badge: "Legal Obligatorio"
             },
             {
+              id: "birth-benefit",
               nombre: "Tramitación de Permisos por Nacimiento (INSS)",
               limite: "Primeros 15 días tras el parto",
               desc: `Solicitud de las ${semanasTotales} semanas para cada progenitor. Las 6 primeras semanas obligatorias se activan desde el parto.`,
               badge: "Económico"
             },
             {
+              id: "health-registration",
               nombre: "Alta en la Seguridad Social y Tarjeta Sanitaria",
               limite: "Inmediato tras el Registro Civil",
               desc: "Inclusión de los bebés como beneficiarios y asignación de pediatra en el Centro de Salud.",
@@ -612,12 +702,14 @@ if __name__ == "__main__":
           color: "border-emerald-500",
           tramites: [
             {
+              id: bebes > 1 ? "multiple-birth-aid" : "birth-aid",
               nombre: bebes > 1 ? "Ayuda Comunidad de Madrid por Parto Múltiple (4.500 €)" : "Ayudas autonómicas a la natalidad",
               limite: "Hasta 3 meses tras el parto",
               desc: bebes > 1 ? "Subvención de pago único de 4.500 € por nacimiento de gemelos empadronados en la Comunidad de Madrid." : "Consulta requisitos según edad y situación familiar.",
               badge: "Autonómica"
             },
             {
+              id: bebes > 1 ? "multiple-birth-inss" : "maternity-tax-deduction",
               nombre: bebes > 1 ? "Prestación Estatal por Parto Múltiple (INSS)" : "Deducción IRPF por Maternidad (Hacienda)",
               limite: "Durante el primer mes",
               desc: bebes > 1 ? "Pago único de la Seguridad Social para gemelos (aprox. 1.000 € exento de IRPF)." : "100 €/mes por hijo menor de 3 años (Modelo 140).",
@@ -633,6 +725,7 @@ if __name__ == "__main__":
               { numero: 1, dias: lactancia1 },
               { numero: 2, dias: lactancia2 }
             ].map(({ numero, dias }) => ({
+              id: `nursing-leave-parent-${numero}`,
               nombre: `Acordar lactancia acumulada del progenitor ${numero}`,
               limite: `Objetivo general: hasta ${formatDate(addDays(addMonths(nacimiento, 9), -1))} (cumple 9 meses el ${formatDate(addMonths(nacimiento, 9))})`,
               desc: `Duración configurada: ${dias} días laborables estimados. El art. 37.4 ET establece el derecho, con carácter general, hasta los 9 meses; puede extenderse hasta los 12 si ambos progenitores lo ejercen con la misma duración y régimen, con reducción proporcional del salario desde los 9 meses. En nacimientos múltiples, el derecho aumenta proporcionalmente. Confirma con la empresa o convenio la acumulación y fecha efectiva. Fechas laborables sin festivos; BOE consultado el 18/10/2026.`,
@@ -660,6 +753,10 @@ if __name__ == "__main__":
                 <span class="text-slate-500 font-medium">Plazo: <b>${t.limite}</b></span>
                 ${t.link ? `<a href="${t.link}" target="_blank" class="text-indigo-600 hover:underline font-semibold flex items-center gap-1">Enlace oficial <i data-lucide="external-link" class="w-3 h-3"></i></a>` : ''}
               </div>
+              <label class="mt-3 block text-xs font-medium text-slate-700">
+                Comentario personal
+                <textarea data-task-comment="${t.id}" rows="2" maxlength="2000" placeholder="Añade una nota o algo que quieras recordar..." class="mt-1 w-full resize-y rounded-lg border border-slate-300 bg-white p-2 text-sm font-normal focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"></textarea>
+              </label>
             </div>
           `;
         });
@@ -667,7 +764,234 @@ if __name__ == "__main__":
       });
       cont.innerHTML = html;
       document.getElementById('totalTramitesTag').innerText = `${total} gestiones catalogadas`;
+      cont.querySelectorAll('[data-task-comment]').forEach(textarea => {
+        textarea.value = planComments[textarea.dataset.taskComment] || '';
+        textarea.addEventListener('input', () => {
+          planComments[textarea.dataset.taskComment] = textarea.value;
+          scheduleCloudSave();
+        });
+      });
       lucide.createIcons();
+    }
+
+    function setCloudStatus(message, isError = false) {
+      const status = document.getElementById('cloudStatus');
+      status.textContent = message;
+      status.className = `text-xs ${isError ? 'text-red-700' : 'text-slate-700'}`;
+    }
+
+    function updateCloudControls() {
+      document.getElementById('cloudAuthControls').classList.toggle('hidden', Boolean(signedInUser));
+      document.getElementById('cloudPlanControls').classList.toggle('hidden', !signedInUser);
+      document.getElementById('signedInEmail').textContent = signedInUser ? `Conectado como ${signedInUser.email}` : '';
+      document.getElementById('savePlanButton').disabled = !activePlanId;
+      document.getElementById('loadPlanButton').disabled = !document.getElementById('savedPlans').value;
+      document.getElementById('deletePlanButton').disabled = !document.getElementById('savedPlans').value;
+    }
+
+    function readFormData() {
+      return {
+        fpp: document.getElementById('inputFpp').value,
+        nacimientoReal: document.getElementById('inputNacimientoReal').value,
+        bebes: document.getElementById('inputBebes').value,
+        ccaa: document.getElementById('inputCcaa').value,
+        estrategia: document.getElementById('inputEstrategia').value,
+        lactancia1: document.getElementById('inputLactancia1').value,
+        lactancia2: document.getElementById('inputLactancia2').value,
+        vacaciones1: document.getElementById('inputVacaciones1').value,
+        vacaciones2: document.getElementById('inputVacaciones2').value
+      };
+    }
+
+    function applyFormData(formData) {
+      const inputIds = {
+        fpp: 'inputFpp',
+        nacimientoReal: 'inputNacimientoReal',
+        bebes: 'inputBebes',
+        ccaa: 'inputCcaa',
+        estrategia: 'inputEstrategia',
+        lactancia1: 'inputLactancia1',
+        lactancia2: 'inputLactancia2',
+        vacaciones1: 'inputVacaciones1',
+        vacaciones2: 'inputVacaciones2'
+      };
+      Object.entries(inputIds).forEach(([key, id]) => {
+        if (typeof formData[key] === 'string') document.getElementById(id).value = formData[key];
+      });
+    }
+
+    async function refreshSavedPlans(selectedId = activePlanId) {
+      if (!supabaseClient || !signedInUser) return;
+      const { data, error } = await supabaseClient
+        .from('family_plans')
+        .select('id, name, updated_at')
+        .order('updated_at', { ascending: false });
+      if (error) throw error;
+
+      const select = document.getElementById('savedPlans');
+      select.replaceChildren(new Option('Selecciona un plan', ''));
+      data.forEach(plan => select.add(new Option(plan.name, plan.id)));
+      select.value = data.some(plan => plan.id === selectedId) ? selectedId : '';
+      updateCloudControls();
+    }
+
+    async function createCloudPlan() {
+      if (!supabaseClient || !signedInUser) return;
+      const name = document.getElementById('planName').value.trim();
+      if (!name) {
+        setCloudStatus('Escribe un nombre para el plan antes de guardarlo.', true);
+        document.getElementById('planName').focus();
+        return;
+      }
+
+      setCloudStatus('Creando el plan...');
+      const { data, error } = await supabaseClient
+        .from('family_plans')
+        .insert({
+          user_id: signedInUser.id,
+          name,
+          form_data: readFormData(),
+          comments: planComments
+        })
+        .select('id')
+        .single();
+      if (error) throw error;
+
+      activePlanId = data.id;
+      await refreshSavedPlans(activePlanId);
+      setCloudStatus('Plan guardado en tu cuenta.');
+    }
+
+    async function saveCloudPlan() {
+      if (!supabaseClient || !signedInUser || !activePlanId) return;
+      const name = document.getElementById('planName').value.trim();
+      if (!name) {
+        setCloudStatus('El plan necesita un nombre para guardar los cambios.', true);
+        return;
+      }
+
+      const { error } = await supabaseClient
+        .from('family_plans')
+        .update({
+          name,
+          form_data: readFormData(),
+          comments: planComments,
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', activePlanId)
+        .eq('user_id', signedInUser.id);
+      if (error) throw error;
+      await refreshSavedPlans(activePlanId);
+      setCloudStatus('Cambios guardados.');
+    }
+
+    function scheduleCloudSave() {
+      if (hydratingPlan || !signedInUser || !activePlanId) return;
+      window.clearTimeout(cloudSaveTimer);
+      setCloudStatus('Cambios pendientes de guardar...');
+      cloudSaveTimer = window.setTimeout(() => {
+        cloudSaveQueue = cloudSaveQueue
+          .then(() => saveCloudPlan())
+          .catch(error => setCloudStatus(`No se pudieron guardar los cambios: ${error.message}`, true));
+      }, 800);
+    }
+
+    async function loadCloudPlan(planId) {
+      if (!supabaseClient || !signedInUser || !planId) return;
+      window.clearTimeout(cloudSaveTimer);
+      await cloudSaveQueue;
+      if (activePlanId) await saveCloudPlan();
+      setCloudStatus('Cargando el plan...');
+      const { data, error } = await supabaseClient
+        .from('family_plans')
+        .select('id, name, form_data, comments')
+        .eq('id', planId)
+        .single();
+      if (error) throw error;
+
+      hydratingPlan = true;
+      try {
+        activePlanId = data.id;
+        planComments = data.comments && typeof data.comments === 'object' && !Array.isArray(data.comments) ? data.comments : {};
+        document.getElementById('planName').value = data.name;
+        applyFormData(data.form_data || {});
+        calcularPlan();
+        await refreshSavedPlans(activePlanId);
+      } finally {
+        hydratingPlan = false;
+      }
+      setCloudStatus(`Plan «${data.name}» cargado.`);
+    }
+
+    async function deleteCloudPlan() {
+      if (!supabaseClient || !signedInUser) return;
+      const planId = document.getElementById('savedPlans').value;
+      if (!planId || !window.confirm('¿Borrar este plan guardado? Esta acción no se puede deshacer.')) return;
+      setCloudStatus('Borrando el plan...');
+      const { error } = await supabaseClient
+        .from('family_plans')
+        .delete()
+        .eq('id', planId)
+        .eq('user_id', signedInUser.id);
+      if (error) throw error;
+
+      if (activePlanId === planId) {
+        activePlanId = null;
+        planComments = {};
+        document.getElementById('planName').value = '';
+        calcularPlan();
+      }
+      await refreshSavedPlans();
+      setCloudStatus('Plan borrado.');
+    }
+
+    function clearActivePlanView() {
+      activePlanId = null;
+      planComments = {};
+      document.getElementById('inputFpp').value = formatInputDate(getDefaultFpp());
+      document.getElementById('inputNacimientoReal').value = '';
+      document.getElementById('inputBebes').value = '2';
+      document.getElementById('inputCcaa').value = 'madrid';
+      document.getElementById('inputEstrategia').value = 'consecutivo';
+      document.getElementById('inputLactancia1').value = '15';
+      document.getElementById('inputLactancia2').value = '15';
+      document.getElementById('inputVacaciones1').value = '15';
+      document.getElementById('inputVacaciones2').value = '15';
+      document.getElementById('planName').value = '';
+      calendarPlanBirthKey = null;
+      calcularPlan();
+    }
+
+    async function handleAuthenticationChange(session) {
+      const previousUser = signedInUser;
+      signedInUser = session ? session.user : null;
+      if (!signedInUser) {
+        if (previousUser) clearActivePlanView();
+        document.getElementById('savedPlans').replaceChildren(new Option('Selecciona un plan', ''));
+        updateCloudControls();
+        return;
+      }
+      if (previousUser && previousUser.id !== signedInUser.id) clearActivePlanView();
+      updateCloudControls();
+      await refreshSavedPlans();
+      setCloudStatus(`Sesión iniciada como ${signedInUser.email}. Selecciona un plan o guarda uno nuevo.`);
+    }
+
+    async function initializeCloudStorage() {
+      if (!supabaseConfigured || !supabaseClient) {
+        setCloudStatus('Para activar el guardado, configura la URL y la clave pública de Supabase en el código. Sin configuración, los datos no se guardan en la nube.');
+        updateCloudControls();
+        return;
+      }
+
+      supabaseClient.auth.onAuthStateChange((_event, session) => {
+        setTimeout(() => {
+          handleAuthenticationChange(session).catch(error => setCloudStatus(`Error al cargar los planes: ${error.message}`, true));
+        }, 0);
+      });
+      const { data, error } = await supabaseClient.auth.getSession();
+      if (error) throw error;
+      await handleAuthenticationChange(data.session);
     }
 
     function exportarICS() {
@@ -699,13 +1023,82 @@ if __name__ == "__main__":
     }
 
     ['inputFpp', 'inputNacimientoReal', 'inputBebes', 'inputCcaa', 'inputEstrategia', 'inputLactancia1', 'inputLactancia2', 'inputVacaciones1', 'inputVacaciones2'].forEach(id => {
-      document.getElementById(id).addEventListener('change', calcularPlan);
+      const input = document.getElementById(id);
+      input.addEventListener('input', scheduleCloudSave);
+      input.addEventListener('change', () => {
+        calcularPlan();
+        scheduleCloudSave();
+      });
     });
-    document.getElementById('calendarPrev').addEventListener('click', () => navigateCalendar(-1));
-    document.getElementById('calendarNext').addEventListener('click', () => navigateCalendar(1));
+    document.getElementById('authPassword').addEventListener('keydown', event => {
+      if (event.key === 'Enter') document.getElementById('signInButton').click();
+    });
+    document.getElementById('signInButton').addEventListener('click', async () => {
+      if (!supabaseClient) return setCloudStatus('Configura Supabase antes de iniciar sesión.', true);
+      const email = document.getElementById('authEmail').value.trim();
+      const password = document.getElementById('authPassword').value;
+      if (!email || !password) return setCloudStatus('Introduce el correo y la contraseña.', true);
+      setCloudStatus('Iniciando sesión...');
+      try {
+        const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) setCloudStatus(`No se pudo iniciar sesión: ${error.message}`, true);
+      } catch (error) {
+        setCloudStatus(`No se pudo iniciar sesión: ${error.message}`, true);
+      }
+    });
+    document.getElementById('signUpButton').addEventListener('click', async () => {
+      if (!supabaseClient) return setCloudStatus('Configura Supabase antes de crear una cuenta.', true);
+      const email = document.getElementById('authEmail').value.trim();
+      const password = document.getElementById('authPassword').value;
+      if (!email || password.length < 8) return setCloudStatus('Introduce un correo válido y una contraseña de al menos 8 caracteres.', true);
+      setCloudStatus('Creando la cuenta...');
+      try {
+        const { data, error } = await supabaseClient.auth.signUp({
+          email,
+          password,
+          options: { emailRedirectTo: window.location.href.split('#')[0] }
+        });
+        if (error) setCloudStatus(`No se pudo crear la cuenta: ${error.message}`, true);
+        else if (!data.session) setCloudStatus('Cuenta creada. Revisa tu correo para confirmar la dirección e iniciar sesión.');
+      } catch (error) {
+        setCloudStatus(`No se pudo crear la cuenta: ${error.message}`, true);
+      }
+    });
+    document.getElementById('newPlanButton').addEventListener('click', () => {
+      createCloudPlan().catch(error => setCloudStatus(`No se pudo crear el plan: ${error.message}`, true));
+    });
+    document.getElementById('savePlanButton').addEventListener('click', () => {
+      window.clearTimeout(cloudSaveTimer);
+      cloudSaveQueue = cloudSaveQueue
+        .then(() => saveCloudPlan())
+        .catch(error => setCloudStatus(`No se pudieron guardar los cambios: ${error.message}`, true));
+    });
+    document.getElementById('savedPlans').addEventListener('change', updateCloudControls);
+    document.getElementById('loadPlanButton').addEventListener('click', () => {
+      loadCloudPlan(document.getElementById('savedPlans').value)
+        .catch(error => setCloudStatus(`No se pudo cargar el plan: ${error.message}`, true));
+    });
+    document.getElementById('deletePlanButton').addEventListener('click', () => {
+      deleteCloudPlan().catch(error => setCloudStatus(`No se pudo borrar el plan: ${error.message}`, true));
+    });
+    document.getElementById('signOutButton').addEventListener('click', async () => {
+      if (!supabaseClient) return;
+      window.clearTimeout(cloudSaveTimer);
+      try {
+        await cloudSaveQueue;
+        if (activePlanId) await saveCloudPlan();
+        const { error } = await supabaseClient.auth.signOut();
+        if (error) setCloudStatus(`No se pudo cerrar sesión: ${error.message}`, true);
+        else setCloudStatus('Sesión cerrada; se ha limpiado el plan de esta pantalla.');
+      } catch (error) {
+        setCloudStatus(`No se cerró la sesión porque no se pudieron guardar los cambios: ${error.message}`, true);
+      }
+    });
+    document.getElementById('planName').addEventListener('input', scheduleCloudSave);
     document.getElementById('btnExportIcs').addEventListener('click', exportarICS);
 
     calcularPlan();
+    initializeCloudStorage().catch(error => setCloudStatus(`No se pudo conectar con Supabase: ${error.message}`, true));
   </script>
 </body>
 </html>

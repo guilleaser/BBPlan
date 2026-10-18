@@ -5,11 +5,26 @@ Prototipo web estático para explorar un planificador de trámites por nacimient
 ## Características
 
 - Incluye pantallas de ejemplo para número de bebés, comunidad autónoma, permisos y gestiones.
-- Incluye un calendario mensual navegable con eventos calculados desde el plan: fecha prevista/real, recordatorios administrativos, periodos estimados de permiso, lactancia y vacaciones, y el hito general de lactancia a los 9 meses.
+- Incluye un calendario compacto con 12 meses consecutivos desde el mes del nacimiento, cuatro meses por fila en pantallas grandes y eventos marcados por día con colores por progenitor/tipo.
+- Permite añadir comentarios personales a cada gestión y guardar varios planes con sus entradas y comentarios en una cuenta de Supabase.
 - El timeline y checklist actuales son **demostrativos y no verificados**; la exportación de calendarios está deshabilitada hasta validar las reglas y fechas.
 - Las vacaciones se configuran por separado para cada progenitor. La lactancia muestra el hito general de 9 meses y la posible extensión legal hasta 12 meses bajo sus condiciones; los días acumulados son estimaciones que deben confirmarse con la empresa o convenio.
 - Las fechas calculadas de lactancia y vacaciones cuentan días de lunes a viernes, sin descontar festivos; no sustituyen el calendario laboral aplicable.
 - Puede desplegarse en proveedores con planes gratuitos; sus límites y condiciones pueden cambiar.
+
+## Guardar planes y comentarios con Supabase
+
+La web sigue siendo estática y no necesita un servidor propio. Supabase proporciona el inicio de sesión y la base de datos; cada usuario solo puede leer y modificar sus propios planes mediante las políticas RLS de [`supabase/schema.sql`](./supabase/schema.sql).
+
+1. Crea un proyecto en [Supabase](https://supabase.com/dashboard).
+2. En el **SQL Editor** del proyecto, ejecuta el contenido de [`supabase/schema.sql`](./supabase/schema.sql). Crea la tabla `family_plans`, habilita RLS y limita las operaciones a la cuenta propietaria.
+3. En **Authentication → URL Configuration**, configura como **Site URL** la URL publicada de la web y añade esa misma URL a las **Redirect URLs**. Para este repositorio, será parecida a `https://guilleaser.github.io/BBPlan/`. El registro puede requerir confirmar el correo antes del primer inicio de sesión.
+4. En **Project Settings → API Keys**, copia la URL del proyecto y su clave pública **Publishable** (o la clave heredada `anon`). En `index.html`, sustituye `YOUR_SUPABASE_PROJECT_URL` y `YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY` por esos valores.
+5. Publica el cambio en GitHub Pages. Crea una cuenta desde la web, confirma el correo, asigna nombre al plan y pulsa **Guardar como nuevo**. Los cambios en campos y comentarios se guardan automáticamente para el plan abierto; **Guardar cambios** también permite guardarlos manualmente.
+
+La clave `publishable`/`anon` está pensada para uso en el navegador y puede quedar visible en el repositorio; la protección depende de activar RLS como en el SQL incluido. **Nunca copies `service_role` ni otra clave secreta al HTML o al repositorio.** La aplicación envía a Supabase los campos del plan y comentarios guardados asociados a tu cuenta. Evita incluir información sensible innecesaria. El servicio tiene límites y condiciones que pueden cambiar; consulta el plan vigente de Supabase.
+
+Si la URL y clave no están configuradas, los controles de cuenta no podrán conectarse ni guardar datos en la nube.
 
 ## Publicar en GitHub y activar los workflows
 
