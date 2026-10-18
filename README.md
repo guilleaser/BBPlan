@@ -5,6 +5,7 @@ Prototipo web estático para explorar un planificador de trámites por nacimient
 ## Características
 
 - Incluye pantallas de ejemplo para número de bebés, comunidad autónoma, permisos y gestiones.
+- Incluye un calendario mensual navegable con eventos calculados desde el plan: fecha prevista/real, recordatorios administrativos, periodos estimados de permiso, lactancia y vacaciones, y el hito general de lactancia a los 9 meses.
 - El timeline y checklist actuales son **demostrativos y no verificados**; la exportación de calendarios está deshabilitada hasta validar las reglas y fechas.
 - Las vacaciones se configuran por separado para cada progenitor. La lactancia muestra el hito general de 9 meses y la posible extensión legal hasta 12 meses bajo sus condiciones; los días acumulados son estimaciones que deben confirmarse con la empresa o convenio.
 - Las fechas calculadas de lactancia y vacaciones cuentan días de lunes a viernes, sin descontar festivos; no sustituyen el calendario laboral aplicable.
