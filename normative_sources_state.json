@@ -1,42 +1,94 @@
 {
   "boe-disposiciones-generales": {
     "url": "https://www.boe.es/rss/boe.php?s=1",
-    "checked_at": "2026-10-18T16:00:46+00:00",
-    "last_successful_check": "2026-10-18T16:00:46+00:00",
+    "checked_at": "2026-11-01T11:53:55+00:00",
+    "last_successful_check": "2026-11-01T11:53:55+00:00",
     "status": "ok",
     "entries": {
-      "https://www.boe.es/boe/dias/2026/10/17/": {
-        "fingerprint": "e4de388b2ac8c099119ce2293093702664a6dcaa7f89c13d32656960be783baf",
+      "https://www.boe.es/boe/dias/2026/10/31/": {
+        "fingerprint": "9d65e0dd62e3ab22961d2b7d503851d5d0bfd0a707f9e8d6e841ab645a23a9ba",
         "title": "Sumario"
       },
-      "https://www.boe.es/boe/dias/2026/10/17/pdfs/BOE-A-2026-21619.pdf": {
-        "fingerprint": "0b60b6476e85efdae9be932b58a7f3623c0d683c9555017f416fd2cafe888463",
-        "title": "Enmiendas de 2024 al Anexo del Convenio internacional sobre normas de formación, titulación y guardia para el personal de los buques pesqueros, 1995 Anexo revisado del Convenio de formación para pescadores de 1995, adoptadas en Londres el 23 de mayo de 2024 por Resolución MSC.561(108), y Código sobre normas de formación, titulación y guardia para el personal de los buques pesqueros (Código de formación para pescadores) adoptado en Londres el 23 de mayo de 2024 por Resolución MSC.562(108)."
+      "https://www.boe.es/boe/dias/2026/10/31/pdfs/BOE-A-2026-22790.pdf": {
+        "fingerprint": "4ce2e29fdccbf451fc838fdc4ada62259d61f3f50da818548a029d0f45c93e00",
+        "title": "Resolución de 30 de octubre de 2026, de la Presidencia del Comisionado para el Mercado de Tabacos, por la que se publican los precios de venta al público de determinadas labores de tabaco en Expendedurías de Tabaco y Timbre del área del Monopolio."
       },
-      "https://www.boe.es/boe/dias/2026/10/17/pdfs/BOE-A-2026-21620.pdf": {
-        "fingerprint": "ef2d18f79171b280ca5bc4e31861bb3b47c7e542fbfaac089b32fd005d500acd",
-        "title": "Resolución de 16 de octubre de 2026, de la Presidencia del Comisionado para el Mercado de Tabacos, por la que se publican los precios de venta al público de determinadas labores de tabaco en Expendedurías de Tabaco y Timbre del área de Península y Baleares."
+      "https://www.boe.es/boe/dias/2026/10/31/pdfs/BOE-A-2026-22791.pdf": {
+        "fingerprint": "6518e00d548432e692e363f5b107e417f115c6cd56c4d5f56ca9a6f783abffd4",
+        "title": "Real Decreto 923/2026, de 28 de octubre, por el que se regula la concesión directa de subvenciones a favor de determinadas entidades y asociaciones para proyectos dirigidos a la población joven con el fin de reforzar su adhesión a los valores democráticos, la confianza en las instituciones públicas, frenar la polarización, combatir la desinformación y promover su participación como sujetos activos de la sociedad."
       },
-      "https://www.boe.es/boe/dias/2026/10/17/pdfs/BOE-A-2026-21621.pdf": {
-        "fingerprint": "fa675d760093c147c8b02d9ef4e049e0e37c59bd22b8f5cbb9f7620f9a7d4a19",
-        "title": "Orden ECM/1092/2026, de 7 de octubre, por la que se acuerda la emisión, acuñación y puesta en circulación de monedas de colección de la XIV Serie Iberoamericana «Encuentro de Dos Mundos»."
+      "https://www.boe.es/boe/dias/2026/10/31/pdfs/BOE-A-2026-22792.pdf": {
+        "fingerprint": "e27c8ac3299b06bc7f828366940cbd030639e7e21ba2cedab46fd7660035bc5d",
+        "title": "Orden TED/1149/2026, de 30 de octubre, por la que se establecen los cargos del sistema gasista y la retribución y los cánones de los almacenamientos subterráneos básicos para el año de gas 2027."
       },
-      "https://www.boe.es/boe/dias/2026/10/17/pdfs/BOE-A-2026-21622.pdf": {
-        "fingerprint": "cbb6ab7ed8f00f74c7135dd24dba6591675a1ac7a38690fc6a7bc255313cec6d",
-        "title": "Orden CNU/1093/2026, de 8 de octubre, por la que se crea el órgano interadministrativo encargado de la ejecución del programa de apoyo a la celebración del acontecimiento de excepcional interés público «Trío de Eclipses 2026-2027-2028»."
-      },
-      "https://www.boe.es/boe/dias/2026/10/17/pdfs/BOE-A-2026-21623.pdf": {
-        "fingerprint": "1e32bcb0320c6af2d613eb9d89112b8cb94ab67f3b590093e328f0d3e4fbdd97",
-        "title": "Real Decreto 832/2026, de 14 de octubre, por el que se regula la concesión directa de una subvención a la Fundación Círculo de Tecnologías para la Defensa y Seguridad."
+      "https://www.boe.es/boe/dias/2026/10/31/pdfs/BOE-A-2026-22793.pdf": {
+        "fingerprint": "9bdb2e850c789141f75788b9d3101d9e932d1f7f3bedcbe252c09366c4bb08b0",
+        "title": "Orden SND/1150/2026, de 21 de octubre, por la que se corrigen errores en la Orden SND/1053/2026, de 1 de octubre, por la que se procede a la actualización en 2026 del sistema de precios de referencia de medicamentos en el Sistema Nacional de Salud."
       }
     }
   },
   "bocm-ultimos-boletines": {
     "url": "https://www.bocm.es/boletines.rss",
-    "checked_at": "2026-10-18T16:00:47+00:00",
-    "last_successful_check": "2026-10-18T16:00:47+00:00",
+    "checked_at": "2026-11-01T11:53:56+00:00",
+    "last_successful_check": "2026-11-01T11:53:56+00:00",
     "status": "ok",
     "entries": {
+      "967157 at https://www.bocm.es": {
+        "fingerprint": "17c7bb4901bc77b7a4141b84533fbceb0f5a0c026daf74e03c6c104d1ef0b4ae",
+        "title": "BOCM - Nº 262"
+      },
+      "966889 at https://www.bocm.es": {
+        "fingerprint": "e7b6a372219d2815234693d86ad14c4d67d156565bd122290ba9b108bee0cfc1",
+        "title": "BOCM - Nº 261"
+      },
+      "966790 at https://www.bocm.es": {
+        "fingerprint": "41df4b2a8ae12a7bdcb15f083c7b429095beda637cc946c6d1f437a7b5209bab",
+        "title": "BOCM - Nº 260"
+      },
+      "966753 at https://www.bocm.es": {
+        "fingerprint": "4db81eaafd7d2bf9668ff853ebfa327218cba737ba0328217d69157aaaefd96f",
+        "title": "BOCM - Nº 258"
+      },
+      "966887 at https://www.bocm.es": {
+        "fingerprint": "6ed5b7997d9fdce77eba36401b0ac510a5418db58371eb8cff88a3b8f4e18d08",
+        "title": "BOCM - Nº 259"
+      },
+      "966673 at https://www.bocm.es": {
+        "fingerprint": "ea68d5741cdd6f13507939079a63870afb5e8319514aa293ea741dc4ecc88a41",
+        "title": "BOCM - Nº 257"
+      },
+      "966419 at https://www.bocm.es": {
+        "fingerprint": "d7411d040979d5a51ada6e9a0f02672d7c6d92b637b4b57c2fc9d91eda3bf87b",
+        "title": "BOCM - Nº 255"
+      },
+      "966664 at https://www.bocm.es": {
+        "fingerprint": "cb7391534f6f7c1097b48faf8553c8eeb721577128017a130cb72cf351f08216",
+        "title": "BOCM - Nº 256"
+      },
+      "966287 at https://www.bocm.es": {
+        "fingerprint": "2885906a2fb892de3983c710f7910e07d7e489403db219bafa0d4fa99d502514",
+        "title": "BOCM - Nº 254"
+      },
+      "966100 at https://www.bocm.es": {
+        "fingerprint": "12c81de600570ff4456a2ebcd44d4f7e4d317ca803696bc2c1893fbf9b43be96",
+        "title": "BOCM - Nº 253"
+      },
+      "965942 at https://www.bocm.es": {
+        "fingerprint": "b335383f595a94dc890f73b0cef004d14197bd419f2ee061c53d594d6ea19348",
+        "title": "BOCM - Nº 252"
+      },
+      "965849 at https://www.bocm.es": {
+        "fingerprint": "c8f1e643b2e996dcb9e9bcaaa9689041280b4bfa70b42804894ea394d4590014",
+        "title": "BOCM - Nº 251"
+      },
+      "965783 at https://www.bocm.es": {
+        "fingerprint": "dfc306d0601df562de4a1f51ff1b2dab666d9a7fdefacff60f9948bacc4b6972",
+        "title": "BOCM - Nº 250"
+      },
+      "965693 at https://www.bocm.es": {
+        "fingerprint": "beb347a07ea1631082cd6129951db62990f1b437aa90514eeb5323b1386325fd",
+        "title": "BOCM - Nº 249"
+      },
       "965669 at https://www.bocm.es": {
         "fingerprint": "734ad1a7dc62b298a170472419b994e27b075681f3d04f0d99f70dde785fbd95",
         "title": "BOCM - Nº 248"
@@ -60,68 +112,12 @@
       "965078 at https://www.bocm.es": {
         "fingerprint": "a19a2bff3d700d962b18e2873c559da13652d538a8cb9d3c85b87f7f54e9c4c3",
         "title": "BOCM - Nº 243"
-      },
-      "965201 at https://www.bocm.es": {
-        "fingerprint": "8c196e33543ec31d967c9fba21cbcad13e13a6b2b71a0d4bfa94e72d7253db24",
-        "title": "BOCM - Nº 242"
-      },
-      "964854 at https://www.bocm.es": {
-        "fingerprint": "45e90e56540bdddc92b028c9906cb2e1fd121e6fb6d4e0a2c182c9bf06e005e0",
-        "title": "BOCM - Nº 241"
-      },
-      "964764 at https://www.bocm.es": {
-        "fingerprint": "e17977ed734ab1cd4cdf10f9ea5df5b8107ce8ea6d8f0260bc6020729a020395",
-        "title": "BOCM - Nº 240"
-      },
-      "964652 at https://www.bocm.es": {
-        "fingerprint": "50a58e3ee2348ced6a6d1c9447c858fe9900565377086c280f8277f14f79f20d",
-        "title": "BOCM - Nº 239"
-      },
-      "964587 at https://www.bocm.es": {
-        "fingerprint": "c2ca397d0f711aa8d1fd96ba047ab89715873879b33f6efafed1299230b94743",
-        "title": "BOCM - Nº 238"
-      },
-      "964503 at https://www.bocm.es": {
-        "fingerprint": "b7236d5704cf994fa0e15eb03bca44935527b341d785f8bd1bd2b03695e3d5f6",
-        "title": "BOCM - Nº 237"
-      },
-      "964482 at https://www.bocm.es": {
-        "fingerprint": "a57021b80b52a26c653b0b2b61b614ead1c4c481f1e82874ef9a17043fa5b0f9",
-        "title": "BOCM - Nº 236"
-      },
-      "964399 at https://www.bocm.es": {
-        "fingerprint": "15a0e219d53f157bf9127ea461e73c215ff5277afe4ac8d3a63c6e1304e56f50",
-        "title": "BOCM - Nº 235"
-      },
-      "964138 at https://www.bocm.es": {
-        "fingerprint": "41884f53cc82a70f1015e3e809c41eca0831cbfdcd7a617a0c18d8de31c920fc",
-        "title": "BOCM - Nº 234"
-      },
-      "964036 at https://www.bocm.es": {
-        "fingerprint": "8c82e83c28f88f8f9fde2165095770a7719e2f5170a8d19a3ce77f9fe8362ee9",
-        "title": "BOCM - Nº 233"
-      },
-      "963975 at https://www.bocm.es": {
-        "fingerprint": "3eb1fcfadbc9922d58edd08590eaafb5a9af5af7412d064c6cc81dc8fcdd5e88",
-        "title": "BOCM - Nº 232"
-      },
-      "963889 at https://www.bocm.es": {
-        "fingerprint": "ae042bb46f5e2a33a2f042f4ec84c4e070aca5f1487753533459b9c1971302d8",
-        "title": "BOCM - Nº 231"
-      },
-      "963869 at https://www.bocm.es": {
-        "fingerprint": "9fa335e5fdb7d9bb662e82045fb02877477d18f56d0ce0e9e098f61905dc82a1",
-        "title": "BOCM - Nº 230"
-      },
-      "963774 at https://www.bocm.es": {
-        "fingerprint": "b4d75c512fbc6082fce8d564b2f533e68b02148ea29d846ef6e7fdab1c58fec6",
-        "title": "BOCM - Nº 229"
       }
     }
   },
   "comunidad-madrid-novedades": {
     "url": "https://www.comunidad.madrid/rss.xml?q=/rss.xml",
-    "checked_at": "2026-10-18T16:00:47+00:00",
+    "checked_at": "2026-11-01T11:53:57+00:00",
     "last_successful_check": "2026-10-18T15:57:39+00:00",
     "status": "error",
     "error": "Error consultando https://www.comunidad.madrid/rss.xml?q=/rss.xml: HTTP Error 404: Not Found",
@@ -170,20 +166,20 @@
   },
   "inss-prestacion-nacimiento-cuidado": {
     "url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/6b96a085-4dc0-47af-b2cb-97e00716791e",
-    "checked_at": "2026-10-18T16:00:47+00:00",
-    "last_successful_check": "2026-10-18T16:00:47+00:00",
+    "checked_at": "2026-11-01T11:53:57+00:00",
+    "last_successful_check": "2026-11-01T11:53:57+00:00",
     "status": "ok",
     "entries": {
       "inss-prestacion-nacimiento-cuidado": {
-        "fingerprint": "ddc7f4395d14e5172c0bfdc948e29db51be6487a9f5d30122f9982e859fd2beb",
-        "title": "Seguridad Social: Prestacions/Pensions de treballadors"
+        "fingerprint": "16afc489c9241f62dee8bec3c52dfad7f83245f7c8932c755e5ba68e0599d79e",
+        "title": "Seguridad Social: Benefits / Pensions for Workers"
       }
     }
   },
   "justicia-inscripcion-nacimiento": {
     "url": "https://www.mjusticia.gob.es/es/ciudadania/tramites/inscripcion-nacimiento",
-    "checked_at": "2026-10-18T16:00:49+00:00",
-    "last_successful_check": "2026-10-18T16:00:49+00:00",
+    "checked_at": "2026-11-01T11:53:59+00:00",
+    "last_successful_check": "2026-11-01T11:53:59+00:00",
     "status": "ok",
     "entries": {
       "justicia-inscripcion-nacimiento": {
@@ -194,19 +190,19 @@
   },
   "aeat-ayuda-manuales": {
     "url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos.html",
-    "checked_at": "2026-10-18T16:00:50+00:00",
-    "last_successful_check": "2026-10-18T16:00:50+00:00",
+    "checked_at": "2026-11-01T11:53:59+00:00",
+    "last_successful_check": "2026-11-01T11:53:59+00:00",
     "status": "ok",
     "entries": {
       "aeat-ayuda-manuales": {
-        "fingerprint": "c0c5d43c4f53c69b222190d223f58f400ad70a43408ea234453ccb3030ae3542",
+        "fingerprint": "5d6e6ab5f6893b2b13c96f7480b7aba3729d0e87e801999765c4518df7ca1d67",
         "title": ": Manuales, vídeos y folletos"
       }
     }
   },
   "madrid-ayudas-natalidad": {
     "url": "https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad?q=/asuntos-sociales/ayudas-economicas-natalidad",
-    "checked_at": "2026-10-18T16:00:50+00:00",
+    "checked_at": "2026-11-01T11:53:59+00:00",
     "last_successful_check": "2026-10-18T15:57:41+00:00",
     "status": "error",
     "error": "Error consultando https://www.comunidad.madrid/asuntos-sociales/ayudas-economicas-natalidad?q=/asuntos-sociales/ayudas-economicas-natalidad: HTTP Error 404: Not Found",
@@ -219,7 +215,7 @@
   },
   "madrid-admision-escuelas-infantiles": {
     "url": "https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil?q=/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil",
-    "checked_at": "2026-10-18T16:00:50+00:00",
+    "checked_at": "2026-11-01T11:53:59+00:00",
     "last_successful_check": "2026-10-18T15:57:42+00:00",
     "status": "error",
     "error": "Error consultando https://www.comunidad.madrid/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil?q=/educacion/haz-tu-solicitud-admision-primer-ciclo-educacion-infantil: HTTP Error 404: Not Found",
@@ -232,7 +228,7 @@
   },
   "madrid-becas-primer-ciclo-infantil": {
     "url": "https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados?q=/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados",
-    "checked_at": "2026-10-18T16:00:50+00:00",
+    "checked_at": "2026-11-01T11:53:59+00:00",
     "last_successful_check": "2026-10-18T15:57:42+00:00",
     "status": "error",
     "error": "Error consultando https://www.comunidad.madrid/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados?q=/educacion/becas-primer-ciclo-educacion-infantil-centros-privados-autorizados: HTTP Error 404: Not Found",
@@ -245,7 +241,7 @@
   },
   "madrid-tarjeta-sanitaria": {
     "url": "https://www.comunidad.madrid/salud/tarjeta-sanitaria?q=/salud/tarjeta-sanitaria",
-    "checked_at": "2026-10-18T16:00:50+00:00",
+    "checked_at": "2026-11-01T11:54:00+00:00",
     "last_successful_check": "2026-10-18T15:57:42+00:00",
     "status": "error",
     "error": "Error consultando https://www.comunidad.madrid/salud/tarjeta-sanitaria?q=/salud/tarjeta-sanitaria: HTTP Error 404: Not Found",
